@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <title>صفحه اصلی ادمین</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1,
+      maximum-scale=1"
+      />
+
+    <link rel="stylesheet" href="../assets/styles/index-admin.css">
+    <link rel="stylesheet" href="../assets/vendors/bootstrap.min.css">
+
+
+
+    <!-- AXIOS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+  </head>
+
+  <body style="background-color: #292929 ;">
+    <!-- START MENU-FIXED-RIGHT -->
+    <nav class="menu-fixed-right col-1">
+      <div class="inner-menu-fixed-right">
+        <div class="content-menu">
+          <ul class="list">
+            <li class="item-menu" id="menuuuu">
+              <a href="#">
+                <span><img
+                    src="../assets/images/icon-valla/menu.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">منو</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/wallet.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">کیف پول</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/test.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">آزمایش رایگان</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/podcast.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پادکست</span>
+              </a>
+            </li>
+            <li class="item-menu"id="icon-add-rotin">
+              <a href="#">
+                <span><img
+                    src="../assets/images/icon-valla/skin-routine.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">روتین پوستی</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/profile.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">پروفایل</span>
+              </a>
+            </li>
+            <li class="item-menu">
+              <a href="profile.html">
+                <span><img
+                    src="../assets/images/icon-valla/home.png"
+                    alt="icon-menu"
+                    /></span>
+                <span class="name-menu">خانه</span>
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+    <!-- END MENU-FIXED-RIGHT -->
+    <!-- START MENU-BOTTOM -->
+    <div class="menu-bottom">
+      <ul class="list-bottom">
+        <li class="item-bottom active">
+          <a href="#" class="item">
+            <img src="../assets/images/icon-valla/home.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">خانه</div>
+          </a>
+
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/profile.png" alt="icon" />
+            <div style="color: #fff;font-size: 8px;">پروفایل</div>
+          </a>
+        </li>
+        <li class="item-bottom"id="icon-add-rotin">
+          <a href="#">
+            <img src="../assets/images/icon-valla/skin-routine.png" alt="icon"
+              />
+            <div style="color: #fff; font-size: 8px;">روتین پوستی</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/podcast.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">پادکست</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/test.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom">
+          <a href="#">
+            <img src="../assets/images/icon-valla/wallet.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+          </a>
+        </li>
+        <li class="item-bottom" id="menuuuu">
+          <a href="#">
+            <img src="../assets/images/icon-valla/menu.png" alt="icon" />
+            <div style="color: #fff; font-size: 8px;">منو</div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- END MENU-BOTTOM -->
+    <div class="container-fluid container-admin" style="position:relative ;">
+      <main class="main container-fluid container-admin">
+        <!-- menu -->
+        <div class="height-full-viewport">
+          <div id="close-menu-1">
+            <span id="close">
+              <img src="../assets/images/icon-valla/close.png" alt="">
+            </span>
+          </div>
+          <ul id="menu-menu-1" class="ms-navbar">
+            <li class="menu-item">
+              <a href="khadamat-hozori.html">
+                خدمات حضوری
+              </a>
+
+            </li>
+            <li class="menu-item">روتین پوستی</li>
+            <li class="menu-item">روتین ها</li>
+            <li class="menu-item">خروج</li>
+
+
+          </ul>
+
+        </div>
+        <!-- menu -->
+        <!-- modal-add-post-admin -->
+        <div class="content-modal modal-rotin">
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="title">
+                  <div id="close-modal-rotin" style="cursor: pointer;"><img
+                      src="./assets/images/icon-valla/close.png" alt=""></div>
+                  <div>روتین پوستی</div>
+                </div>
+                <div class="imge">
+                  <img src="./assets/images/icon-valla/skin-routine.png" alt="">
+                  <div class="title"> 19مهر 1401</div>
+                </div>
+                <div class="date-rotin-list">
+                  <div class="rotin-item">
+                    کرم مرطوب کننده ساعت 11
+                  </div>
+                  <div class="rotin-item">
+                    کرم مرطوب کننده ساعت 11
+                  </div>
+                  <div class="rotin-item">
+                    کرم مرطوب کننده ساعت 11
+                  </div>
+                  <div class="rotin-item">
+                    کرم مرطوب کننده ساعت 11
+                  </div>
+
+                </div>
+              </div>
+              <div class="btn-modal">
+                <div class="btn-sabt-post">
+                  ثبت
+                </div>
+              </div>
+            </div>
+          </form>
+        </div> -->
+        <!-- modal-add-post-admin -->
+
+        <!-- start highlight  -->
+        <!-- modal-add-post-admin -->
+        <div class="content-modal modal-add-post">
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="title">
+                  <div><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div>افزودن پست جدید</div>
+                </div>
+                <div class="uploade-imge">
+                  <label class="item-upload" for="picture-post-add">
+                    تصویر
+                  </label>
+                  <input type="file" name="photo" id="picture-post-add"  hidden />
+                </div> 
+                <input type="text" class="text-add-post my-3 w-100" id="title-post-add">
+                <textarea
+                  name="modal"
+                  class="input-modal"
+                  id="text-post-add"
+                  cols="30"
+                  rows="7"
+                  placeholder="متن را تایپ کنید"></textarea>
+              </div>
+              <div class="btn-modal" id="add-post">
+                <div class="btn-sabt-post">
+                  ثبت
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- modal-add-post-admin -->
+
+        <!-- start highlight  -->
+        <div class="highlit-category">
+          <div class="inner-highlit-category">
+            <div class="content-highlit">
+              <!-- highlit-item -->
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/2.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+              </div>
+              <!-- highlit-item -->
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/3.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+
+
+              </div>
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/4.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+
+
+              </div>
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/5.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+
+
+              </div>
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/6.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+
+
+              </div>
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/7.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+
+
+              </div>
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/8.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+
+
+              </div>
+              <div class="col-3 p-2 highlit-item">
+                <div class="highlit-item-inner">
+                  <img src="../assets/images/post-imge/9.png" alt="">
+                </div>
+                <div class="highlit-title">عنوان هایلایت</div>
+
+
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+        <!-- start highlight  -->
+        <!-- start post category -->
+        <div class="posts-category posts-category-two">
+          <div class="inner-post-category" id="posts-container">
+            <!-- add-podcast -->
+            <div class="add-post" id="add-post">
+              <span class="icon-add"> + </span>
+              <span class="text-add">اضافه کردن پست</span>
+            </div>
+            <!-- add-podcast -->
+            <!-- post item -->
+          
+            <!-- post item -->
+            
+
+          </div>
+        </div>
+        <!-- start content posts -->
+
+
+
+        <div id="big-container">
+          
+          
+        </div>
+
+
+
+
+
+      </main>
+    </div>
+
+  
+    <script src="../assets/js/admin/home.js"  type="module" ></script>
+  </body>
+</html>
