@@ -1,13 +1,16 @@
+// import { getUserLocal } from "./api/validateLoginUser.js";
+
+// await getUserLocal();
  /*------------------------------Render Page--------------------------------- */
 
- let btnHamburger = document.querySelectorAll(".inner-content-post-two");
- btnHamburger.forEach((item, index) => {
-   item.addEventListener("click", () => {
- 
-     btnHamburger[index].classList.toggle("active");
-   
-   });
- });
+//  let btnHamburger = document.querySelectorAll(".inner-content-post-two");
+//  btnHamburger.forEach((item, index) => {
+//    item.addEventListener("click", (e) => {
+//     console.log(e.target.className);
+//     if(e.target.className === "heart" || e.target.className === "comment")
+//      btnHamburger[index].classList.toggle("active");
+//    });
+//  });
 
 
  /* ------------------change img and content--------------------- */

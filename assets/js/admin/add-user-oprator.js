@@ -1,3 +1,53 @@
+import { addManager } from "../api/add-manager.js";
+import { getAllManagers } from "../api/managers.js";
+
+// const allTypes = [
+//   { title: "opratorF", type: "Feeding", name: "اپراتور فروش" },
+//   { title: "opratorW", type: "Wedding", name: "اپراتور عروسی" },
+//   { title: "opratorB", type: "Beauty", name: "اپراتور زیبایی" },
+//   { title: "opratorP", type: "Photographic", name: "اپراتور عکاسی" },
+//   { title: "opratorM", type: "Medical", name: "اپراتور پزشکی" },
+//   { title: "opratorL", type: "Laboratory", name: "اپراتور آزمایشگاه" },
+//   { title: "opratorS", type: "Sports", name: "اپراتور ورزشی" },
+// ];
+
+/*-----------------render Page ------------------*/
+
+const renderPage = async () => {
+  const allMangers = await getAllManagers();
+  const filterManager = allMangers.filter((item) => item.types !== "admin");
+
+  const containerManagers = document.querySelector("#container-managers");
+
+  filterManager.forEach((item, index) => {
+    {
+      const note = `<div class="col-12 col-md-6 p-2">
+    <a href="./profile-user.html?${item.id}">
+      <div class="item-user">
+        <div class="col-3 col-md-2">
+          <div class="image-user">
+            <img src="http://127.0.0.1:8000/${item.image}"
+            alt="${item.name}">
+          </div>
+          </div>
+          
+        <div class="col-9 col-md-10 nnn ">
+          <div class="name-user">
+          ${item.name}         </div>
+        </div>
+      </div>
+    </a>
+    
+  </div>`;
+
+      containerManagers.innerHTML += note;
+    }
+  });
+};
+
+await renderPage();
+/*-----------------render Page ------------------*/
+
 /* ------------------change img and content--------------------- */
 let btns = document.querySelectorAll(".btn-category-user");
 let contents = document.querySelectorAll(".content");
@@ -80,12 +130,75 @@ btnsShowModaltwo.forEach((item, index) => {
   });
 });
 
-
-
 contentModalstwo.forEach((item, index) => {
   item.addEventListener("click", (e) => {
     if (e.target.className === "inner-modal")
-    contentModalstwo[index].classList.remove("active");
+      contentModalstwo[index].classList.remove("active");
   });
 });
 /*----------------------------(show , close , send) modal more-text-ticket --------------------------- */
+
+/*------------------------------add user ------------------------------*/
+
+// const btnAddOprator = document.querySelector("#btn-add-oprator");
+// const name = document.querySelector("#name");
+// const age = document.querySelector("#age");
+// const title = document.querySelector("#title");
+// const image = document.querySelector("#image");
+
+// btnAddOprator.addEventListener("click", async () => {
+//   var formdata = new FormData();
+
+//   formdata.append("image", image.files[0], image.value);
+//   formdata.append("name", name.value);
+//   formdata.append("types", "oprator");
+//   formdata.append("age", age.value);
+
+//   var requestOptions = {
+//     method: "POST",
+//     body: formdata,
+//     redirect: "follow",
+//   };
+
+//   await addOprator(requestOptions);
+// });
+
+/*------------------------------add user ------------------------------*/
+
+const btnShowModal = document.querySelector("#btn-show-modal-add");
+const modalAdd = document.querySelector("#modal-add");
+const closeModal = document.querySelector(".close-modal-add-post");
+
+btnShowModal.addEventListener("click", () => {
+  modalAdd.classList.add("active");
+});
+
+closeModal.addEventListener("click", () => {
+  modalAdd.classList.remove("active");
+});
+
+/*-----------------btn add manager------------------*/
+const btnAdd = document.querySelector("#btn-add-oprator");
+
+const image = document.querySelector("#image");
+const name = document.querySelector("#name");
+const age = document.querySelector("#age");
+const title = document.querySelector("#title");
+
+btnAdd.addEventListener("click", async () => {
+  var formdata = new FormData();
+  formdata.append("image", image.files[0], image.value);
+  formdata.append("name", name.value);
+  formdata.append("age", +age.value);
+  formdata.append("types", title.value);
+
+  var requestOptions = {
+    method: "POST",
+    body: formdata,
+    redirect: "follow",
+  };
+
+  await addManager(requestOptions);
+});
+
+/*-----------------btn add manager------------------*/

@@ -1,4 +1,8 @@
+import { addPodcast } from "../api/podcast.js";
 import { getAllPost } from "../api/post.js";
+import { addStory, getAllStory } from "../api/story.js";
+import { shortTicket } from "../helper.js";
+// await validateLogin();
 
 const renderPage = async () => {
   const allPosts = await getAllPost();
@@ -6,13 +10,44 @@ const renderPage = async () => {
   const containerPosts = document.querySelector("#posts-container");
   const containerBigPost = document.querySelector("#big-container");
 
-  console.log(podcasts);
+  const containerStories = document.querySelector("#container-story");
+  const containerMoadals = document.querySelector("#container-modals");
+
+  const allStories = await getAllStory();
+
+  allStories.forEach((item, index) => {
+    const note = ` 
+    
+    <div class="col-3 col-md-3 p-2 highlit-item story_item" >
+    <div class="highlit-item-inner">
+      <img src="${item.file}" alt="">
+    </div>
+    <div class="highlit-title">${shortTicket("شسیرذسمیشتذرسشیهمعرذمهسعی" , 15)}...</div>
+  </div>`;
+
+    const note1 = `<div class="content-modal modal-hilight-pro">
+  <div class="inner-modal d-flex flex-column ">
+  <div class="btn-exit display-1 text-white">×</div>
+  <div class="border-1 border-white rounded-4 overflow-hidden " >
+  <img src="${item.file}" />
+  </div>
+ <p class="text-white text-justify my-4" style="font-size : 1.5em">asodnviuasdbvuasbivasdbdsavbsadjk</p>
+    
+</div>
+  
+</div>`;
+
+    containerStories.innerHTML += note;
+    containerMoadals.innerHTML += note1;
+  });
+
+
 
   podcasts.forEach((item, index) => {
     const note = ` <div class="post-item ">
       <div class="col-3 col-md-4 col-lg-3 p-1">
         <div class=" right-post-item">
-          <img src="../assets/images/post-imge/11.png" alt="">
+          <img src="${item.poster}" alt="${item.title}">
         </div>
      
       </div>
@@ -29,17 +64,17 @@ const renderPage = async () => {
 
     const noteTwo = `<div class="content-post">
       <!-- imge-podcast -->
-    <img src="../assets/images/post-imge/post11.png" alt="" class="imge-post">
+    <img src="${item.poster}" alt="${item.title}" class="imge-post">
     <div class="inner-content-post">
      <div class="title-podcast">
-     ${item.title}
+     ${shortTicket(item.title , 50)}
      </div>
 
 
      <!--audio  -->
      <div class="podcast">
       <audio controls  class="jj">
-        <source src="../assets/podcast/Dariush - Hasod [128].mp3" type="audio/mpeg" >
+        <source src="${item.file}"  type="audio/mpeg" >
        </audio>
      </div>
 
@@ -57,6 +92,8 @@ const renderPage = async () => {
   let btns = document.querySelectorAll(".post-item");
   let contents = document.querySelectorAll(".content-post");
 
+
+
   btns.forEach((item, index) => {
     item.addEventListener("click", () => {
       btns.forEach((item) => {
@@ -70,9 +107,36 @@ const renderPage = async () => {
     });
   });
 
-  btns[0].classList.add("active");
-  contents[0].classList.add("active");
+  if (btns.length) {
+    btns[0].classList.add("active");
+    contents[0].classList.add("active");
+  }
+  // ---------------------------------story-------------------------------------//
+ let story = document.querySelectorAll(".story_item");
+ let modal_story = document.querySelectorAll(" .modal-hilight-pro");
+ let overalyModals = document.querySelectorAll(
+   " .modal-hilight-pro .inner-modal"
+ );
+ let closeModals = document.querySelectorAll(".btn-exit");
 
+ story.forEach((item, index) => {
+   item.addEventListener("click", () => {
+     modal_story[index].classList.add("active");
+   });
+ });
+ overalyModals.forEach((item, index) => {
+   item.addEventListener("click", (e) => {
+    if (e.target.className === "inner-modal d-flex flex-column ") {
+       modal_story[index].classList.remove("active");
+     }
+   });
+ });
+ closeModals.forEach((item, index) => {
+   item.addEventListener("click", () => {
+     modal_story[index].classList.remove("active");
+   });
+ });
+ // ---------------------------------story-------------------------------------//
 };
 
 await renderPage();
@@ -91,23 +155,48 @@ document.addEventListener(
 );
 
 /*-------------------add post-----------------*/
-//   const btnAddPodcast = document.querySelector("#add-podcast");
-//   const imageAddPodcast = document.querySelector("#picture-podcast-add");
-//   const textAddPodcast = document.querySelector("#text-podcast-add");
-//   const titleAddPodcast = document.querySelector("#title-podcast-add");
+const btnsShowModal_p = document.querySelector("#show-modal-podcast");
+const btnsCloseModal_p = document.querySelector(".close-modal-add-podcast");
+// const btnsSendModal_p = document.querySelector(".btn-send-modal");
+const contentModals_p = document.querySelector("#modal-podcast");
+  btnsShowModal_p.addEventListener("click", () => {
+    contentModals_p.classList.add("active");
+  });
+  btnsCloseModal_p.addEventListener("click", () => {
+    contentModals_p.classList.remove("active");
+  });
+  contentModals_p.addEventListener("click", (e) => {
+    if (e.target.className === "inner-modal")
+    contentModals_p.classList.remove("active");
+  })
 
-//   btnAddPodcast.addEventListener("click", async () => {
-//     //   const data = {
-//     //     file: imageAddPost.value,
-//     //     poster: imageAddPost.value,
-//     //     title: titleAddPost.value,
-//     //     description: textAddPost.value,
-//     //     isDelete : false,
-//     //     like : 1,
-//     //     type : "image"
-//     //   };
-//     //   await addPost(data);
-//   });
+
+  
+  /*-------------------add post-----------------*/
+const btnAddPodcast = document.querySelector("#add-podcast");
+const imageAddPodcast = document.querySelector("#image-podcast");
+const podcastAddPodcast = document.querySelector("#podcast");
+const textAddPodcast = document.querySelector("#text-podcast-add");
+
+btnAddPodcast.addEventListener("click", async () => {
+  console.log("dskavn");
+  var formdata = new FormData();
+  formdata.append("file", podcastAddPodcast.files[0], podcastAddPodcast.value);
+  formdata.append("poster", imageAddPodcast.files[0], imageAddPodcast.value);
+  formdata.append("description", textAddPodcast.value);
+  formdata.append("like", 0);
+  formdata.append("title", "پادکست شماره یک");
+  formdata.append("types", "podcast");
+  formdata.append("oprator", 7);
+
+  var data = {
+    method: "POST",
+    body: formdata,
+    redirect: "follow",
+  };
+
+  await addPodcast(data);
+});
 /*-------------------add post-----------------*/
 
 /*------------------------------Render Page--------------------------------- */
@@ -122,32 +211,55 @@ btnHamburger.forEach((item, index) => {
 /* ------------------change img and content--------------------- */
 
 /* ------------------change img and content--------------------- */
-/*----------------------------(show , close , send) modal add-post --------------------------- */
-const btnsShowModal = document.querySelectorAll(".icon-add");
-const btnsCloseModal = document.querySelectorAll(".close-modal-adamtaeid");
-const btnsSendModal = document.querySelectorAll(".btn-send-modal");
-const valueModals = document.querySelectorAll(".input-modal");
-const contentModals = document.querySelectorAll(".modal-add-post");
 
-btnsShowModal.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    contentModals[index].classList.add("active");
-  });
+
+
+/*-------------------show Modal hilight-----------------*/
+
+const btnsShowModal_b = document.querySelector("#add-highlit");
+const btnsCloseModal_b = document.querySelector(".close-modal-add-hi");
+// const btnsSendModal_b = document.querySelector(".btn-send-modal");
+const contentModals_b = document.querySelector("#modal-hilight");
+
+
+btnsShowModal_b.addEventListener("click", () => {
+  contentModals_b.classList.add("active");
+});
+btnsCloseModal_b.addEventListener("click", () => {
+  contentModals_b.classList.remove("active");
+});
+contentModals_b.addEventListener("click", (e) => {
+  if (e.target.className === "inner-modal")
+    contentModals_b.classList.remove("active");
 });
 
-btnsCloseModal.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    contentModals[index].classList.remove("active");
-  });
-});
+/*-------------------show Modal hilight-----------------*/
+/*-------------------add story-----------------*/
+const btnAddStory = document.querySelector("#add-story");
+const titleHilight = document.querySelector("#title-hilight");
+console.log(btnAddPodcast);
 
-contentModals.forEach((item, index) => {
-  item.addEventListener("click", (e) => {
-    if (e.target.className === "inner-modal")
-      contentModals[index].classList.remove("active");
-  });
+btnAddStory.addEventListener("click", async () => {
+  await addStory("add-image", titleHilight.value);
 });
-/*----------------------------(show , close , send) modal add-post --------------------------- */
+/*-------------------add story-----------------*/
+
+
+
+/*---------------------btns next and prev story-------------------------*/
+// const next = document.querySelector("#next")
+
+
+
+
+
+/*---------------------btns next and prev story-------------------------*/
+
+
+
+
+
+
 /* ------------------change img and content--------------------- */
 //   let btnss = document.querySelectorAll("#menuuuu");
 //   let contentss = document.querySelector(".height-full-viewport");

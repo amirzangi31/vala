@@ -86,7 +86,7 @@
         <div class="content-menu">
           <ul class="list">
             <li class="item-menu" id="menuuuu">
-              <a href="#">
+              <a>
                 <span><img
                     src="./assets/images/icon-valla/menu.png"
                     alt="icon-menu"
@@ -103,8 +103,8 @@
                 <span class="name-menu">کیف پول</span>
               </a>
             </li>
-            <li class="item-menu">
-              <a href="profile.html">
+            <li class="item-menu" id="azmayesh-raygan">
+              <a href="#">
                 <span><img
                     src="./assets/images/icon-valla/test.png"
                     alt="icon-menu"
@@ -131,7 +131,7 @@
               </a>
             </li>
             <li class="item-menu">
-              <a href="../Beauty.html">
+              <a href="./Beauty.html">
                 <span><img
                     src="./assets/images/icon-valla/profile.png"
                     alt="icon-menu"
@@ -192,7 +192,7 @@
         <li class="item-bottom">
           <a href="#">
             <img src="./assets/images/icon-valla/wallet.png" alt="icon" />
-            <div style="color: #fff; font-size: 8px;">آزمایش رایگان</div>
+            <div style="color: #fff; font-size: 8px;">کیف پول</div>
           </a>
         </li>
         <li class="item-bottom" id="menuuuu">
@@ -206,81 +206,63 @@
     <!-- END MENU-BOTTOM -->
     <!-- start highlight  -->
     <div class="highlit-category ">
-      <div class="inner-highlit-category col-12 col-md-6">
-        <div class="content-highlit">
-          <!-- highlit-item -->
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/2.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-          </div>
-          <!-- highlit-item -->
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/3.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-
-
-          </div>
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/4.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-
-
-          </div>
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/5.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-
-
-          </div>
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/6.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-
-
-          </div>
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/7.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-
-
-          </div>
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/8.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-
-
-          </div>
-          <div class="col-3 col-md-2  p-2 highlit-item">
-            <div class="highlit-item-inner">
-              <img src="./assets/images/post-imge/9.png" alt="">
-            </div>
-            <div class="highlit-title">عنوان هایلایت</div>
-
-
-          </div>
+      <div class="inner-highlit-category col-12 col-md-5">
+        <div class="content-highlit" id="container-story">
+          
+          
         </div>
 
 
       </div>
 
     </div>
+
+
   <!-- start highlight  -->
     <div class="container-fluid container-admin" style="position:relative ;">
+
+<!-- modal-add-post-admin -->
+<div class="content-modal modal-azmayesh-raygan">
+  <div class="inner-modal">
+    <form class="px-4 pt-2">
+      <div class="py-2">
+        <div class="title">
+          <div id="close-modal-azmayesh"><img
+              src="./assets/images/icon-valla/close.png" alt=""></div>
+          <div style="font-size: 1.5em;">ارسال آزمایش</div>
+        </div>
+        <label class="uploade-imge" for="file-azmayesh">
+          <div class="item-upload">
+            تصویر آزمایش
+          </div>
+          <input type="file" id="file-azmayesh" hidden>
+        </label>
+        <textarea
+          name="modal"
+          class="input-modal"
+          id="des-azmayesh"
+          cols="30"
+          rows="7"
+          placeholder="توضیخات خود را بنویسید"></textarea>
+      </div>
+      <div class="btn-modal" id="btn-add-azmayesh">
+        <div class="btn-sabt-post">
+          ثبت
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- modal-add-post-admin -->
+
       <main class="main container-fluid container-admin">
+
+
+        <div id="container-modals">
+
+        </div>
+
+
 
         <div class="up-page col-5">
           <div class="imge-title-page">

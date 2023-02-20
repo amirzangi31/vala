@@ -501,7 +501,13 @@ input {
   color: #fff;
   font-size: 15px;
 }
+.posts-category .inner-post-category .post-item .right-post-item {
+  height: 90px;
+  overflow: hidden;
+}
 .posts-category .inner-post-category .post-item .right-post-item img {
+  width: 100%;
+  height: 100%;
   border: 1px solid rgb(255, 255, 255);
   border-radius: 10px;
 }
@@ -940,8 +946,8 @@ input {
 }
 .forms .form .group-form label {
   color: black;
-  font-weight: 300;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 15px;
   transition: all 800ms;
   -webkit-transition: all 800ms;
   -moz-transition: all 800ms;
@@ -953,8 +959,8 @@ input {
   display: flex;
   flex-grow: 1;
   padding: 0 5px;
-  font-weight: 300;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 16px;
   color: black;
   outline: none;
 }
@@ -1069,7 +1075,7 @@ input {
   background-color: #fefefe;
   color: rgb(0, 0, 0);
   font-weight: 300;
-  font-size: 13px;
+  font-size: 16px;
   padding: 10px 30px;
   border-radius: 40px;
   -webkit-border-radius: 40px;
@@ -1142,6 +1148,18 @@ input {
   border-radius: 20px;
   border: 1px solid #fff;
 }
+.down-category-user .user-category .kk .item-user .video-rotin .image-user {
+  display: none;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  border: 1px solid #fff;
+}
+.down-category-user .user-category .kk .item-user .video-rotin .image-user.active {
+  display: block;
+}
 .down-category-user .user-category .kk .item-user .contenthh {
   padding: 10px;
 }
@@ -1158,7 +1176,7 @@ input {
 .down-category-user .user-category .kk .item-user .contenthh #amount {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   writing-mode: vertical-lr;
   width: 100%;
   margin-bottom: 10px;
@@ -1657,6 +1675,121 @@ input {
   color: #fff;
 }
 
+.text-add-post {
+  border: 1px solid rgba(112, 112, 112, 0.1137254902);
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+}
+
+.story_item_modal .inner-modal form {
+  width: 320px;
+}
+.story_item_modal .inner-modal form .title {
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+.story_item_modal .inner-modal form .content-story {
+  width: 100%;
+}
+.story_item_modal .inner-modal form .content-story img {
+  width: 100%;
+}
+
+.insert-comment {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.insert-comment .image-insert {
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  overflow: hidden;
+}
+.insert-comment .image-insert img {
+  max-width: 100%;
+}
+.insert-comment .comment-insert {
+  display: flex;
+  flex-grow: 1;
+}
+.insert-comment .comment-insert input {
+  display: flex;
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  color: white;
+}
+.insert-comment .comment-insert input:focus {
+  outline: none;
+}
+.insert-comment .comment-insert input::placeholder {
+  color: white;
+}
+.insert-comment .comment-insert button {
+  margin: 0 10px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  padding: 10px 20px;
+}
+
+.menu-admins {
+  position: fixed;
+  width: 100%;
+  height: 425px;
+  bottom: -376px;
+  left: 0;
+  z-index: 100;
+  justify-content: end;
+  transition: all 500ms;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+.menu-admins.active {
+  bottom: 0;
+}
+.menu-admins .overlay-menu-mobiles {
+  position: absolute;
+  bottom: 170px;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  z-index: -1;
+  backdrop-filter: blur(3px);
+  background-color: rgba(34, 32, 32, 0.284);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border: 1px solid #fff;
+}
+.menu-admins .inner-menu-mobiles {
+  width: 100%;
+  height: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: #ffffff;
+  position: absolute;
+  bottom: 0;
+}
+
 @media (max-width: 768px) {
   .user-category {
     padding: 10px 10px;
@@ -1731,6 +1864,9 @@ input {
   }
   .category-foods .row-food-category .row-food-item {
     font-size: 14px !important;
+  }
+  .right-post-item {
+    height: 60px;
   }
   .content-main {
     padding-bottom: 120px;
@@ -2107,6 +2243,9 @@ input {
   }
   .category-foods .row-food-category .row-food-item {
     font-size: 14px !important;
+  }
+  .right-post-item {
+    height: 60px;
   }
   .content-main {
     padding-bottom: 120px;

@@ -145,6 +145,45 @@
     <!-- END MENU-BOTTOM -->
     <div class="container-fluid col-md-11 bg">
       <main class="main" style="padding-bottom:60px ;">
+
+        <div class="content-modal modal-add-post" id="modal-add" style="z-index: 1000;">
+          <div class="inner-modal">
+            <form class="px-4 py-3">
+              <div class="">
+                <div class="title">
+                  <div class="close-modal-add-post"><img class=" mx-auto d-block" src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div class="my-1">افزودن اپراتور جدید</div>
+                </div>
+                <div class="uploade-imge">
+                  <label class="item-upload bg-white p-2 rounded-2 w-100 text-center" for="image">
+                    تصویر
+                  </label>
+                  <input type="file" name="photo" id="image"  hidden />
+                </div> 
+                <input type="text" class="text-add-post my-2 w-100 border border-white rounded-1 px-2" placeholder="نام اپراتور را وارد کنید" id="name">
+                <input type="number" class="text-add-post my-2 w-100 border border-white rounded-1 px-2" placeholder=" سن اپراتور را وارد کنید" id="age">
+                <!-- <input type="text" class="text-add-post my-2 w-100 border border-white rounded-1 px-2" placeholder="نوع خدمت  را وارد کنید" id="title"> -->
+                <select name="title" id="title" class="w-100 bg-transparent py-1 rounded-1" style="color : grey"> 
+                  <option value="Feeding" label="اپراتور فروش"></option>  
+                  <option value="Medical" label="اپراتور پزشکی"></option>
+                  <option value="Beauty" label="اپراتور زیبایی"></option>
+                  <option value="Photographic" label="اپراتور عکاسی"></option>
+                  <option value="Laboratory" label="اپراتور آزمایشگاه"></option>
+                  <option value="Wedding" label="اپراتور عروسی"></option>
+                  <option value="Sports" label="اپراتور ورزشی"></option>
+                </select>
+              </div>
+              <div class="btn-modal bg-white text-center w-100 my-2 py-2 rounded-2" id="btn-add-oprator">
+                <div class="btn-sabt-post" >
+                  ثبت
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+
+
         <div class="up-category-user">
           <div class="category-user-inner col-6">
             <div class="col-6 col-md-2 p-3">
@@ -167,17 +206,17 @@
                 اپراتورها
               </div>
 
-              <div class="btn-category-user">
+              <!-- <div class="btn-category-user">
                 کاربران
-              </div>
+              </div> -->
 
             </div>
 
           </div>
           <div class="content active">
-            <div class="user-category bg">
+            <div class="user-category bg" id="container-managers">
               <div class="col-12 col-md-6 p-2">
-                <div class="item-user add">
+                <div class="item-user add" id="btn-show-modal-add">
                   <div class="col-3 col-md-2">
                     <div class="image-user">
                      <img src="../assets/images/comment-img/add-user.png" alt="">
@@ -191,144 +230,13 @@
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6 p-2">
-                <a href="./profile-user.html">
-                  <div class="item-user">
-                    <div class="col-3 col-md-2">
-                      <div class="image-user">
-                        <img src="../assets/images/comment-img/1.png"
-                        alt="">
-                      </div>
-                      </div>
-                      
-                    <div class="col-9 col-md-10 nnn ">
-                      <div class="name-user">
-                       لعیا رهنما
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <a href="./profile-user.html">
-                  <div class="item-user">
-                    <div class="col-3 col-md-2">
-                      <div class="image-user">
-                        <img src="../assets/images/comment-img/2.png"
-                        alt="">
-                      </div>
-                      </div>
-                      
-                    <div class="col-9 col-md-10 nnn ">
-                      <div class="name-user">
-                       لعیا رهنما
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <a href="./profile-user.html">
-                  <div class="item-user">
-                    <div class="col-3 col-md-2">
-                      <div class="image-user">
-                        <img src="../assets/images/comment-img/3.png"
-                        alt="">
-                      </div>
-                      </div>
-                      
-                    <div class="col-9 col-md-10 nnn ">
-                      <div class="name-user">
-                       لعیا رهنما
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <a href="./profile-user.html">
-                  <div class="item-user">
-                    <div class="col-3 col-md-2">
-                      <div class="image-user">
-                        <img src="../assets/images/comment-img/4.png"
-                        alt="">
-                      </div>
-                      </div>
-                      
-                    <div class="col-9 col-md-10 nnn ">
-                      <div class="name-user">
-                       لعیا رهنما
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <a href="./profile-user.html">
-                  <div class="item-user">
-                    <div class="col-3 col-md-2">
-                      <div class="image-user">
-                        <img src="../assets/images/comment-img/5.png"
-                        alt="">
-                      </div>
-                      </div>
-                      
-                    <div class="col-9 col-md-10 nnn ">
-                      <div class="name-user">
-                       لعیا رهنما
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <a href="./profile-user.html">
-                  <div class="item-user">
-                    <div class="col-3 col-md-2">
-                      <div class="image-user">
-                        <img src="../assets/images/comment-img/6.png"
-                        alt="">
-                      </div>
-                      </div>
-                      
-                    <div class="col-9 col-md-10 nnn ">
-                      <div class="name-user">
-                       لعیا رهنما
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <a href="./profile-user.html">
-                  <div class="item-user">
-                    <div class="col-3 col-md-2">
-                      <div class="image-user">
-                        <img src="../assets/images/comment-img/8.png"
-                        alt="">
-                      </div>
-                      </div>
-                      
-                    <div class="col-9 col-md-10 nnn ">
-                      <div class="name-user">
-                       لعیا رهنما
-                      </div>
-                    </div>
-                  </div>
-                </a>
-                
-              </div>
+              
+              
             </div>
           </div>
             
         
-          <div class="content">
+          <!-- <div class="content">
             <div class="user-category bg">
               <div class="col-12 col-md-6 p-2">
                 <div class="item-user add">
@@ -479,7 +387,7 @@
                 
               </div>
             </div>
-          </div>
+          </div> -->
 
 
 
@@ -487,7 +395,11 @@
         </div>
       </main>
 
+
+
+
+
     </div>
-  <script src="../assets/js/admin/add-user-oprator.js"></script>
+  <script src="../assets/js/admin/add-user-oprator.js" type="module"></script>
   </body>
 </html>

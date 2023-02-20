@@ -198,7 +198,7 @@
             <form class="px-4 pt-2">
               <div class="py-2">
                 <div class="title">
-                  <div><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div id="close"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
                   <div>تعریف غذای جدید</div>
                 </div>
                 <div class="inputs-add-food">
@@ -212,20 +212,20 @@
                   <div class="col-12 p-2">
                     <div class="input-item">
                       <span class="title-input">مقدار</span>
-                      <input type="text" name="name" id="name-food">
+                      <input type="text" name="name" id="value-food">
                     </div>
                     
                   </div>
                   <div class="col-12 p-2">
                     <div class="input-item">
                       <span class="title-input">کالری</span>
-                      <input type="text" name="name" id="name-food">
+                      <input type="text" name="name" id="callery-food">
                     </div>
                     
                   </div>
                 </div>
               </div>
-              <div class="btn-modal">
+              <div class="btn-modal" id="btn-add-food">
                 <div class="btn-sabt-post">
                   ثبت
                 </div>
@@ -246,145 +246,11 @@
 
 
               <!-- start-table-food -->
-              <div class="col-12 col-md-9">
+              <div class="col-12 col-md-9" id="container-food">
                 <!-- item-row-food -->
-               <div class="row-food-category p-2">
-                 <div class="col-4">
-                   <div id="food-name" class="row-food-item">
-                     کاهو
-                   </div>
-                 </div>
-                 <div class="col-4">
-                   <div id="amount-of-grams" class="row-food-item">
-                     200گرم
-                   </div>
-                 </div>
-                 <div class="col-4">
-                   <div id="The-amount-of-calories" class="row-food-item">
-                     200کالری
-                   </div>
-                 </div>
-               </div>
+               
                 <!-- item-row-food -->
-               <div class="row-food-category p-2">
-                <div class="col-4">
-                  <div id="food-name" class="row-food-item">
-                    کاهو
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="amount-of-grams" class="row-food-item">
-                    200گرم
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="The-amount-of-calories" class="row-food-item">
-                    200کالری
-                  </div>
-                </div>
-              </div>
-              <div class="row-food-category p-2">
-                <div class="col-4">
-                  <div id="food-name" class="row-food-item">
-                    کاهو
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="amount-of-grams" class="row-food-item">
-                    200گرم
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="The-amount-of-calories" class="row-food-item">
-                    200کالری
-                  </div>
-                </div>
-              </div>
-              <div class="row-food-category p-2">
-                <div class="col-4">
-                  <div id="food-name" class="row-food-item">
-                    کاهو
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="amount-of-grams" class="row-food-item">
-                    200گرم
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="The-amount-of-calories" class="row-food-item">
-                    200کالری
-                  </div>
-                </div>
-              </div>
-              <div class="row-food-category p-2">
-                <div class="col-4">
-                  <div id="food-name" class="row-food-item">
-                    کاهو
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="amount-of-grams" class="row-food-item">
-                    200گرم
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div id="The-amount-of-calories" class="row-food-item">
-                    200کالری
-                  </div>
-                </div>
-              </div>
-              <div class="row-food-category p-2">
-               <div class="col-4">
-                 <div id="food-name" class="row-food-item">
-                   کاهو
-                 </div>
-               </div>
-               <div class="col-4">
-                 <div id="amount-of-grams" class="row-food-item">
-                   200گرم
-                 </div>
-               </div>
-               <div class="col-4">
-                 <div id="The-amount-of-calories" class="row-food-item">
-                   200کالری
-                 </div>
-               </div>
-             </div>
-             <div class="row-food-category p-2">
-               <div class="col-4">
-                 <div id="food-name" class="row-food-item">
-                   کاهو
-                 </div>
-               </div>
-               <div class="col-4">
-                 <div id="amount-of-grams" class="row-food-item">
-                   200گرم
-                 </div>
-               </div>
-               <div class="col-4">
-                 <div id="The-amount-of-calories" class="row-food-item">
-                   200کالری
-                 </div>
-               </div>
-             </div>
-             <div class="row-food-category p-2">
-               <div class="col-4">
-                 <div id="food-name" class="row-food-item">
-                   کاهو
-                 </div>
-               </div>
-               <div class="col-4">
-                 <div id="amount-of-grams" class="row-food-item">
-                   200گرم
-                 </div>
-               </div>
-               <div class="col-4">
-                 <div id="The-amount-of-calories" class="row-food-item">
-                   200کالری
-                 </div>
-               </div>
-             </div>
+               
                
               </div>
         
@@ -396,201 +262,9 @@
 
           <!-- start-content-karbaran -->
           <div class="content ">
-            <div class="user-category bg">
-              <div class="col-12 col-md-6 p-2 kk">
-                <div class="item-user">
-                  <!-- imge-user -->
-                  <div class="col-2 imge-user">
-                    <div>
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <!-- range-type -->
-                  <div class="col-5 contenthh" style="color: #fff;">
-                    <div class="name-user">رضا آخوندی</div>
-                    <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-                    <input id="amount-cream" type="range" name="cream" list="amount" step="50">
-                    <datalist id="amount">
-                      <!-- <option value="0" label="کم"></option> -->
-                      <option value="50" label="21دی 01"></option>
-                      <!-- <option value="100" label="زیاد"></option> -->
-                    </datalist>
-
-                  </div>
-                  <!-- video-rotin -->
-                  <div class="col-5 video-rotin">
-                    <div class="video-item">
-                      <video src="../assets/images/jj.mp4"
-                        poster="../assets/images/poster.png" controls>
-
-                      </video>
-                    </div>
-
-                  </div>
-
-                </div>
-                <a href="../admin/Definition-of-diet.html">
-                  <span class="Definition-of-diet">تعریف رژیم غذایی</span>
-                </a>
+            <div class="user-category bg w-100" id="container-users">
               
-              </div>
-              <div class="col-12 col-md-6 p-2 kk">
-                <div class="item-user">
-                  <!-- imge-user -->
-                  <div class="col-2 imge-user">
-                    <div>
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
 
-                  </div>
-                  <!-- range-type -->
-                  <div class="col-5 contenthh" style="color: #fff;">
-                    <div class="name-user">رضا آخوندی</div>
-                    <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-                    <input id="amount-cream" type="range" name="cream" list="amount" step="50">
-                    <datalist id="amount">
-                      <!-- <option value="0" label="کم"></option> -->
-                      <option value="50" label="21دی 01"></option>
-                      <!-- <option value="100" label="زیاد"></option> -->
-
-                    </datalist>
-
-                  </div>
-                  <!-- video-rotin -->
-                  <div class="col-5 video-rotin">
-                    <div class="video-item">
-                      <video src="../assets/images/jj.mp4"
-                        poster="../assets/images/poster.png" controls>
-
-                      </video>
-                    </div>
-
-                  </div>
-
-                </div>
-                <a href="../admin/Definition-of-diet.html">
-                  <span class="Definition-of-diet">تعریف رژیم غذایی</span>
-                </a>
-              </div>
-              <div class="col-12 col-md-6 p-2 kk">
-                <div class="item-user">
-                  <!-- imge-user -->
-                  <div class="col-2 imge-user">
-                    <div>
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <!-- range-type -->
-                  <div class="col-5 contenthh" style="color: #fff;">
-                    <div class="name-user">رضا آخوندی</div>
-                    <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-                    <input id="amount-cream" type="range" name="cream" list="amount" step="50">
-                    <datalist id="amount">
-                      <!-- <option value="0" label="کم"></option> -->
-                      <option value="50" label="21دی 01"></option>
-                      <!-- <option value="100" label="زیاد"></option> -->
-
-                    </datalist>
-
-                  </div>
-                  <!-- video-rotin -->
-                  <div class="col-5 video-rotin">
-                    <div class="video-item">
-                      <video src="../assets/images/jj.mp4"
-                        poster="../assets/images/poster.png" controls>
-
-                      </video>
-                    </div>
-
-                  </div>
-
-                </div>
-                <a href="../admin/Definition-of-diet.html">
-                  <span class="Definition-of-diet">تعریف رژیم غذایی</span>
-                </a>
-              </div>
-              <div class="col-12 col-md-6 p-2 kk">
-                <div class="item-user">
-                  <!-- imge-user -->
-                  <div class="col-2 imge-user">
-                    <div>
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <!-- range-type -->
-                  <div class="col-5 contenthh" style="color: #fff;">
-                    <div class="name-user">رضا آخوندی</div>
-                    <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-                    <input id="amount-cream" type="range" name="cream" list="amount" step="50">
-                    <datalist id="amount">
-                      <!-- <option value="0" label="کم"></option> -->
-                      <option value="50" label="21دی 01"></option>
-                      <!-- <option value="100" label="زیاد"></option> -->
-
-                    </datalist>
-
-                  </div>
-                  <!-- video-rotin -->
-                  <div class="col-5 video-rotin">
-                    <div class="video-item">
-                      <video src="../assets/images/jj.mp4"
-                        poster="../assets/images/poster.png" controls>
-
-                      </video>
-                    </div>
-
-                  </div>
-
-                </div>
-                <a href="../admin/Definition-of-diet.html">
-                  <span class="Definition-of-diet">تعریف رژیم غذایی</span>
-                </a>
-              </div>
-              <div class="col-12 col-md-6 p-2 kk">
-                <div class="item-user">
-                  <!-- imge-user -->
-                  <div class="col-2 imge-user">
-                    <div>
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <!-- range-type -->
-                  <div class="col-5 contenthh" style="color: #fff;">
-                    <div class="name-user">رضا آخوندی</div>
-                    <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-                    <input id="amount-cream" type="range" name="cream" list="amount" step="50">
-                    <datalist id="amount">
-                      <!-- <option value="0" label="کم"></option> -->
-                      <option value="50" label="21دی 01"></option>
-                      <!-- <option value="100" label="زیاد"></option> -->
-
-                    </datalist>
-
-                  </div>
-                  <!-- video-rotin -->
-                  <div class="col-5 video-rotin">
-                    <div class="video-item">
-                      <video src="../assets/images/jj.mp4"
-                        poster="../assets/images/poster.png" controls>
-
-                      </video>
-                    </div>
-
-                  </div>
-
-                </div>
-                <a href="../admin/Definition-of-diet.html">
-                  <span class="Definition-of-diet">تعریف رژیم غذایی</span>
-                </a>
-              </div>
-              
-            
-              
-            
             </div>
           </div>
           <!-- start-content-karbaran -->
@@ -604,517 +278,30 @@
           <!--  start-content-ticket  -->
           <div class="content ">
             <!-- start modal more text-ticket  -->
-            <div class="content-modal modal-tickettwo">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="content-more-ticket">
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                      صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                      چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                      سطرآنچنان که لازم است، و برای شرایط فعلی
-                      تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                      بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                      شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                      جامعه و متخصصان را می طلبد، تا با نرم افزارها
-                      شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                      طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
-                      کرد، در این صورت می توان امید داشت که تمام و
-                      دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
-                      به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                      دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
-                      دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                    </div>
+            <div class="more-container">
 
-                  </div>
-                </form>
-              </div>
+              
             </div>
             <!-- start modal more text-ticket  -->
 
-            <div class="content-modal modal-tickettwo">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="content-more-ticket">
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                      صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                      چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                      سطرآنچنان که لازم است، و برای شرایط فعلی
-                      تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                      بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                      شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                      جامعه و متخصصان را می طلبد، تا با نرم افزارها
-                      شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                      طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
-                      کرد، در این صورت می توان امید داشت که تمام و
-                      دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
-                      به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                      دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
-                      دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                    </div>
-
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-tickettwo">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="content-more-ticket">
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                      صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                      چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                      سطرآنچنان که لازم است، و برای شرایط فعلی
-                      تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                      بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                      شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                      جامعه و متخصصان را می طلبد، تا با نرم افزارها
-                      شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                      طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
-                      کرد، در این صورت می توان امید داشت که تمام و
-                      دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
-                      به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                      دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
-                      دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                    </div>
-
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-tickettwo">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="content-more-ticket">
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                      صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                      چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                      سطرآنچنان که لازم است، و برای شرایط فعلی
-                      تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                      بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                      شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                      جامعه و متخصصان را می طلبد، تا با نرم افزارها
-                      شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                      طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
-                      کرد، در این صورت می توان امید داشت که تمام و
-                      دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
-                      به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                      دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
-                      دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                    </div>
-
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-tickettwo">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="content-more-ticket">
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                      صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                      چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                      سطرآنچنان که لازم است، و برای شرایط فعلی
-                      تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                      بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                      شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                      جامعه و متخصصان را می طلبد، تا با نرم افزارها
-                      شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                      طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
-                      کرد، در این صورت می توان امید داشت که تمام و
-                      دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
-                      به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                      دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
-                      دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                    </div>
-
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-tickettwo">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="content-more-ticket">
-                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-                      صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                      چاپگرها و متون بلکه روزنامه و مجله در ستون و
-                      سطرآنچنان که لازم است، و برای شرایط فعلی
-                      تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-                      بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                      شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-                      جامعه و متخصصان را می طلبد، تا با نرم افزارها
-                      شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
-                      طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
-                      کرد، در این صورت می توان امید داشت که تمام و
-                      دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
-                      به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                      دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
-                      دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                    </div>
-
-                  </div>
-                </form>
-              </div>
-            </div>
+            
             <!-- end modal more text-ticket  -->
 
-            <!-- START MODAL answer-ticket -->
-            <div class="content-modal modal-ticket">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="name">jhg</div>
-                    <div class="title">
-                      ,knjh
-                    </div>
-                    <textarea
-                      name="modal"
-                      class="input-modal"
-                      cols="30"
-                      rows="7"
-                      placeholder="پاسخ تیکت"></textarea>
-                  </div>
-                  <div class="btns-modal">
-                    <div class="btn-modal col-6">
-                      <span class="btn-send-modal">ارسال</span>
-                    </div>
-                    <div class="btn-modal close-modal-adamtaeid col-6">
-                      <span>لغو</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            <div class="answer-container">
+              
+              
             </div>
             <!-- END MODALanswer-ticket -->
 
-            <div class="content-modal modal-ticket">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="name">jhg</div>
-                    <div class="title">
-                      ,knjh
-                    </div>
-                    <textarea
-                      name="modal"
-                      class="input-modal"
-                      cols="30"
-                      rows="7"
-                      placeholder="پاسخ تیکت"></textarea>
-                  </div>
-                  <div class="btns-modal">
-                    <div class="btn-modal col-6">
-                      <span class="btn-send-modal">ارسال</span>
-                    </div>
-                    <div class="btn-modal close-modal-adamtaeid col-6">
-                      <span>لغو</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-ticket">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="name">jhg</div>
-                    <div class="title">
-                      ,knjh
-                    </div>
-                    <textarea
-                      name="modal"
-                      class="input-modal"
-                      cols="30"
-                      rows="7"
-                      placeholder="پاسخ تیکت"></textarea>
-                  </div>
-                  <div class="btns-modal">
-                    <div class="btn-modal col-6">
-                      <span class="btn-send-modal">ارسال</span>
-                    </div>
-                    <div class="btn-modal close-modal-adamtaeid col-6">
-                      <span>لغو</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-ticket">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="name">jhg</div>
-                    <div class="title">
-                      ,knjh
-                    </div>
-                    <textarea
-                      name="modal"
-                      class="input-modal"
-                      cols="30"
-                      rows="7"
-                      placeholder="پاسخ تیکت"></textarea>
-                  </div>
-                  <div class="btns-modal">
-                    <div class="btn-modal col-6">
-                      <span class="btn-send-modal">ارسال</span>
-                    </div>
-                    <div class="btn-modal close-modal-adamtaeid col-6">
-                      <span>لغو</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-ticket">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="name">jhg</div>
-                    <div class="title">
-                      ,knjh
-                    </div>
-                    <textarea
-                      name="modal"
-                      class="input-modal"
-                      cols="30"
-                      rows="7"
-                      placeholder="پاسخ تیکت"></textarea>
-                  </div>
-                  <div class="btns-modal">
-                    <div class="btn-modal col-6">
-                      <span class="btn-send-modal">ارسال</span>
-                    </div>
-                    <div class="btn-modal close-modal-adamtaeid col-6">
-                      <span>لغو</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-            <div class="content-modal modal-ticket">
-              <div class="inner-modal">
-                <form class="px-4 pt-2">
-                  <div class="py-2">
-                    <div class="name">jhg</div>
-                    <div class="title">
-                      ,knjh
-                    </div>
-                    <textarea
-                      name="modal"
-                      class="input-modal"
-                      cols="30"
-                      rows="7"
-                      placeholder="پاسخ تیکت"></textarea>
-                  </div>
-                  <div class="btns-modal">
-                    <div class="btn-modal col-6">
-                      <span class="btn-send-modal">ارسال</span>
-                    </div>
-                    <div class="btn-modal close-modal-adamtaeid col-6">
-                      <span>لغو</span>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
+            
             <!-- END MODALanswer-ticket -->
 
             <!-- start-ticket-category -->
-            <div class="tikets-category">
+            <div class="tikets-category ticekts-container w-100" >
               <!-- ticket-item -->
-              <div class="col-12 col-md-6 p-2">
-                <div class="ticket-item">
-                  <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
-                    <div class="imge-user">
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <div class="col-5 col-md-6 content-ticket">
-                    <div class="name-user">رضا آخوندی</div>
-                    <div class="description">
-                      <div> لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی
-                        است .
-                        لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی است .</div>
-                      <div class="more" id="more-btn"> در ادامه...</div>
-
-
-                    </div>
-
-
-                  </div>
-                  <div class="col-3 col-md-3 btn-answer-ticket">
-                    <span class="btn-answer btn-modal-1">
-                      پاسخ
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
+              
                <!-- ticket-item -->
-              <div class="col-12 col-md-6 p-2">
-                <div class="ticket-item">
-                  <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
-                    <div class="imge-user">
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <div class="col-5 col-md-6 content-ticket">
-                    <div class="name-user">رضا آخوندی</div>
-                    <div class="description">
-                      <div> لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی
-                        است .
-                        لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی است .</div>
-                      <div class="more" id="more-btn"> در ادامه...</div>
-
-
-                    </div>
-
-
-                  </div>
-                  <div class="col-3 col-md-3 btn-answer-ticket">
-                    <span class="btn-answer btn-modal-1">
-                      پاسخ
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <div class="ticket-item">
-                  <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
-                    <div class="imge-user">
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <div class="col-5 col-md-6 content-ticket">
-                    <div class="name-user">رضا آخوندی</div>
-                    <div class="description">
-                      <div> لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی
-                        است .
-                        لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی است .</div>
-                      <div class="more" id="more-btn"> در ادامه...</div>
-
-
-                    </div>
-
-
-                  </div>
-                  <div class="col-3 col-md-3 btn-answer-ticket">
-                    <span class="btn-answer btn-modal-1">
-                      پاسخ
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <div class="ticket-item">
-                  <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
-                    <div class="imge-user">
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <div class="col-5 col-md-6 content-ticket">
-                    <div class="name-user">رضا آخوندی</div>
-                    <div class="description">
-                      <div> لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی
-                        است .
-                        لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی است .</div>
-                      <div class="more" id="more-btn"> در ادامه...</div>
-
-
-                    </div>
-
-
-                  </div>
-                  <div class="col-3 col-md-3 btn-answer-ticket">
-                    <span class="btn-answer btn-modal-1">
-                      پاسخ
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <div class="ticket-item">
-                  <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
-                    <div class="imge-user">
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <div class="col-5 col-md-6 content-ticket">
-                    <div class="name-user">رضا آخوندی</div>
-                    <div class="description">
-                      <div> لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی
-                        است .
-                        لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی است .</div>
-                      <div class="more" id="more-btn"> در ادامه...</div>
-
-
-                    </div>
-
-
-                  </div>
-                  <div class="col-3 col-md-3 btn-answer-ticket">
-                    <span class="btn-answer btn-modal-1">
-                      پاسخ
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
-              <div class="col-12 col-md-6 p-2">
-                <div class="ticket-item">
-                  <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
-                    <div class="imge-user">
-                      <img src="../assets/images/5.png" alt="">
-                    </div>
-
-                  </div>
-                  <div class="col-5 col-md-6 content-ticket">
-                    <div class="name-user">رضا آخوندی</div>
-                    <div class="description">
-                      <div> لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی
-                        است .
-                        لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی است .</div>
-                      <div class="more" id="more-btn"> در ادامه...</div>
-
-
-                    </div>
-
-
-                  </div>
-                  <div class="col-3 col-md-3 btn-answer-ticket">
-                    <span class="btn-answer btn-modal-1">
-                      پاسخ
-                    </span>
-
-                  </div>
-
-                </div>
-
-              </div>
+             
 
             </div>
             <!-- start-ticket-category -->
@@ -1123,7 +310,7 @@
 
 
           <!--  start-content-moshaverah  -->
-          <div class="content ">
+          <div class="content "> 
             <!-- start modal more text-moshaverah  -->
             <div class="content-modal modal-tickettwo">
               <div class="inner-modal">
@@ -1696,8 +883,7 @@
      <!-- SWIPER -->
      <script src="../assets/vendors/swiper.js"></script>
 
-    <script src="../assets/js/test.js"></script>
-    <script src="../assets/js/admin/add-user-oprator.js"></script>
+     <script src="../assets/js/oprator/index.js" type="module"></script>
     
    
   </body>

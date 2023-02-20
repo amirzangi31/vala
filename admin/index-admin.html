@@ -211,6 +211,12 @@
         </div> -->
         <!-- modal-add-post-admin -->
 
+        <div id="container-modals"></div>
+
+        
+
+
+
         <!-- start highlight  -->
         <!-- modal-add-post-admin -->
         <div class="content-modal modal-add-post">
@@ -218,7 +224,7 @@
             <form class="px-4 pt-2">
               <div class="py-2">
                 <div class="title">
-                  <div><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div class="close-modal-add-post"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
                   <div>افزودن پست جدید</div>
                 </div>
                 <div class="uploade-imge">
@@ -227,7 +233,7 @@
                   </label>
                   <input type="file" name="photo" id="picture-post-add"  hidden />
                 </div> 
-                <input type="text" class="text-add-post my-3 w-100" id="title-post-add">
+                <input type="text" class="text-add-post my-3 text-white w-100 border border-white rounded-1 px-2" placeholder="عنوان پست را وارد کنید" id="title-post-add">
                 <textarea
                   name="modal"
                   class="input-modal"
@@ -244,91 +250,75 @@
             </div>
           </form>
         </div>
+        
         <!-- modal-add-post-admin -->
 
+          <!-- start highlight  -->
+          <div class="highlit-category ">
+
+            <div class="inner-highlit-category col-12 col-md-5">
+              <div class="content-highlit" id="container-story">
+                <div  class="add-post" id="add-highlit">
+                  <span class="icon-add" > + </span>
+                  <span class="text-add">اضافه کردن هایلایت</span>
+                </div>
+                <!-- highlit-item -->
+               
+                <!-- highlit-item -->
+               
+              </div>
+  
+  
+            </div>
+  
+          </div>
         <!-- start highlight  -->
-        <div class="highlit-category">
-          <div class="inner-highlit-category">
-            <div class="content-highlit">
-              <!-- highlit-item -->
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/2.png" alt="">
+
+        <div class="content-modal modal-add-highlit" id="modal-hilight">
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="title">
+                  <div class="close-modal-add-hi" style="cursor: pointer;"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div>افزودن هایلایت جدید</div>
                 </div>
-                <div class="highlit-title">عنوان هایلایت</div>
+                <div class="uploade-imge">
+                  <label for="file-story" class="add-post">
+                    <div class="item-upload">
+                      تصویر
+                    </div>
+                  </label>
+                  <input type="file" id="file-story" hidden>
+                  
+
+                </div>
+                <input
+                  name="modal"
+                  class="input-modal w-100 text-white"
+                  type="text"
+                  id="title-hilight"
+                  placeholder="عنوان را تایپ کنید" />
               </div>
-              <!-- highlit-item -->
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/3.png" alt="">
+              <div class="btn-modal" id="add-story">
+                <div class="btn-sabt-post">
+                  ثبت
                 </div>
-                <div class="highlit-title">عنوان هایلایت</div>
-
-
-              </div>
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/4.png" alt="">
-                </div>
-                <div class="highlit-title">عنوان هایلایت</div>
-
-
-              </div>
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/5.png" alt="">
-                </div>
-                <div class="highlit-title">عنوان هایلایت</div>
-
-
-              </div>
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/6.png" alt="">
-                </div>
-                <div class="highlit-title">عنوان هایلایت</div>
-
-
-              </div>
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/7.png" alt="">
-                </div>
-                <div class="highlit-title">عنوان هایلایت</div>
-
-
-              </div>
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/8.png" alt="">
-                </div>
-                <div class="highlit-title">عنوان هایلایت</div>
-
-
-              </div>
-              <div class="col-3 p-2 highlit-item">
-                <div class="highlit-item-inner">
-                  <img src="../assets/images/post-imge/9.png" alt="">
-                </div>
-                <div class="highlit-title">عنوان هایلایت</div>
-
-
               </div>
             </div>
-
-
-          </div>
-
+          </form>
         </div>
-        <!-- start highlight  -->
+
+
         <!-- start post category -->
         <div class="posts-category posts-category-two">
           <div class="inner-post-category" id="posts-container">
             <!-- add-podcast -->
-            <div class="add-post" id="add-post">
+            <div class="add-post" id="show-post">
               <span class="icon-add"> + </span>
               <span class="text-add">اضافه کردن پست</span>
             </div>
+          
+
             <!-- add-podcast -->
             <!-- post item -->
           
@@ -351,6 +341,10 @@
 
 
       </main>
+
+
+
+
     </div>
 
   

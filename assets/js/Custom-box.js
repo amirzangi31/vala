@@ -1,3 +1,8 @@
+import { getUserLocal } from "./api/validateLoginUser.js";
+
+await getUserLocal();
+
+
 /* ------------------change img and content--------------------- */
 let btns = document.querySelectorAll(".inner-custom-box");
 let contents = document.querySelectorAll(".content-pakage");

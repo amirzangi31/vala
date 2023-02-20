@@ -19,11 +19,35 @@
     
 }
 .question-admin{
+    .upload{
+        height: 80vh;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        .upload-image-inner{
+            @include centering;
+           .upload-image-btn{
+               text-align: center;
+               color: rgb(0, 0, 0);
+               background-color: #fff;
+               padding: 10px;
+               border-radius: 50px;
+              
+           }
+            
+        }
+    }
+    
     height: 80vh;
-    display: flex;
+    display: none;
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    &.active{
+        display: flex;
+    }
     .question-admin-inner{
         padding: 10px;
         .title{
@@ -53,6 +77,22 @@
         }
         
     }
+}
+.forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+    direction: ltr;
+    padding: 10px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    width: 100%;
+    background-color: transparent;
+    box-shadow: transparent;
 }
 
 

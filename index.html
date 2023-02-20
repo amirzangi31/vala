@@ -11,7 +11,11 @@
 
     <link rel="stylesheet" href="./assets/styles/index.css">
     <link rel="stylesheet" href="./assets/vendors/bootstrap.min.css">
-
+    <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
 
         <!-- AXIOS -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -151,7 +155,7 @@
             <img src="./assets/images/icon-valla/close.png" alt="">
           </span>
         </div>
-        <ul id="menu-menu-1" class="ms-navbar">
+        <ul id="menu-menu-1" class="ms-navbar" >
           <li class="menu-item">
             <a href="khadamat-hozori.html">
               خدمات حضوری
@@ -206,6 +210,17 @@
         </form>
       </div> -->
       <!-- modal-rotin -->
+
+      <div id="container-modals">
+        <div class="border-1 border-white rounded-4 overflow-hidden " >
+          <img src="" alt="">
+        </div>
+      </div>
+
+     
+
+
+
       <!-- modal-add-post-admin -->
       <div class="content-modal modal-azmayesh-raygan">
         <div class="inner-modal">
@@ -216,20 +231,21 @@
                     src="./assets/images/icon-valla/close.png" alt=""></div>
                 <div style="font-size: 1.5em;">ارسال آزمایش</div>
               </div>
-              <div class="uploade-imge">
+              <label class="uploade-imge" for="file-azmayesh">
                 <div class="item-upload">
                   تصویر آزمایش
                 </div>
-
-              </div>
+                <input type="file" id="file-azmayesh" hidden>
+              </label>
               <textarea
                 name="modal"
                 class="input-modal"
+                id="des-azmayesh"
                 cols="30"
                 rows="7"
                 placeholder="توضیخات خود را بنویسید"></textarea>
             </div>
-            <div class="btn-modal">
+            <div class="btn-modal" id="btn-add-azmayesh">
               <div class="btn-sabt-post">
                 ثبت
               </div>
@@ -244,72 +260,10 @@
 
         <!-- start highlight  -->
           <div class="highlit-category ">
-            <div class="inner-highlit-category col-12 col-md-6">
-              <div class="content-highlit">
-                <!-- highlit-item -->
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/2.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-                </div>
-                <!-- highlit-item -->
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/3.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-  
-  
-                </div>
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/4.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-  
-  
-                </div>
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/5.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-  
-  
-                </div>
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/6.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-  
-  
-                </div>
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/7.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-  
-  
-                </div>
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/8.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-  
-  
-                </div>
-                <div class="col-3 col-md-2  p-2 highlit-item">
-                  <div class="highlit-item-inner">
-                    <img src="./assets/images/post-imge/9.png" alt="">
-                  </div>
-                  <div class="highlit-title">عنوان هایلایت</div>
-  
-  
-                </div>
+            <div class="inner-highlit-category col-12 col-md-5">
+              <div class="content-highlit" id="container-story">
+                
+                
               </div>
   
   
@@ -321,249 +275,27 @@
         <!-- start post category -->
         <div class="posts-category posts-category-two">
           <div class="inner-post-category" id="posts-container">
-            <!-- post item -->
-            <!-- <div class="post-item col-3 col-md-12">
-              <div class="col-12 col-md-4 col-lg-3 p-1">
-                <div class="right-post-item">
-                  <img src="./assets/images/post-imge/8.png" alt="">
-                </div>
-
-              </div>
-              <div class="col-8 col-md-7 col-lg-8 p-1">
-                <div class="left-post-item">
-                  <div class="title-post">عنوان پست</div>
-                  <div class="des-post"> لورم ایپسوم متن ساختگی با تولید سادگی
-                    نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                  </div>
-                </div>
-
-              </div>
-              <div class="more"><img
-                  src="./assets/images/icon-valla/MENUUU.png" alt=""></div>
-            </div> -->
-            <!-- post item -->
            
           </div>
         </div>
 
         <div id="big-container">
-          <!-- <div class="content-post active">
-            <!-- imge post in the contentpost -->
-            <img src="./assets/images/post-imge/post8.png" alt=""
-              class="imge-post">
-            <!-- logo-vala -->
-            <div class="logo-vala col-3" style="color: #fff;">
-              <img src="./assets/images/vala uhiujou.png" alt="">
-            </div>
-            <!-- logo-vala -->
-            <!-- Date -->
-            <div class="date">
-              2مهر 1401
-            </div>
-            <!-- Date -->
-            <!--The beginning of the lower part  -->
-            <div class="inner-content-post-two">
-              <div class="line">
-                <!-- The likes section and the number of comments -->
-                <div class="row">
-                  <div class="col-2 icon">
-                    <div class="heart"> <img
-                        src="./assets/images/icon-valla/heart.png" alt=""></div>
-                    <div class="comment"><img
-                        src="./assets/images/icon-valla/comment.png" alt=""></div>
-                  </div>
-                  <!-- The likes section and the number of comments -->
-  
-                  <div class="col-10">
-                    <div class="up-content-post">
-                      <!-- title-post -->
-                      <div class="title-post">عنوان پست</div>
-                      <!-- title-post -->
-                      <!-- Post description -->
-                      <div class="description">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
-                        برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با
-                        هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت
-                        و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
-                        متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را
-                        برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ
-                        پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
-                        داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط
-                        سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی
-                        دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود
-                        طراحی اساسا مورد استفاده قرار گیرد.
-                      </div>
-                      <!-- Post description -->
-                    </div>
-  
-                  </div>
-                </div>
-                <!-- start comment -->
-                <div class="commentt">
-                  <!-- Start of each comment item for backtick -->
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <!-- Photo of each comment -->
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/4.png" alt="">
-                        </div>
-                      </div>
-                      <!-- Photo of each comment -->
-                      <!-- The textual content of each comment -->
-                      <div class="col-10 col-md-11 test-comment p-1">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                      <!-- The textual content of each comment -->
-                    </div>
-                  </div>
-                  <!-- Start of each comment item for backtick -->
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/2.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/1.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/3.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/5.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/6.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/7.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/8.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="comment-item">
-                      <div class="col-2 col-md-1 p-1">
-                        <div class="imge-comment">
-                          <img src="./assets/images/comment-img/9.png" alt="">
-                        </div>
-                      </div>
-                      <div class="col-10 col-md-11 test-comment p-1">
-  
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                        چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
-                        بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- start comment -->
-  
-  
-  
-              </div>
-  
-            </div>
-          </div> -->
-          <!--The beginning of the lower part  -->
-          <!-- item-content -->
           
+        
         </div>
-        <!-- start content posts -->
-        <!-- item-content -->
-        
-        
       </main>
     </div>
 
-
+<script
+type="text/javascript"
+src="https://cdn.jsdelivr.net/npm/toastify-js"
+></script>
     <!-- <script src="./assets/js/podcast.js" ></script> -->
     <script src="./assets/js/index.js" type="module"></script>
+
+
+
+   
+
   </body>
 </html>

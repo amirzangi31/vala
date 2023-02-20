@@ -1,3 +1,7 @@
+
+import { getUserLocal } from "./api/validateLoginUser.js";
+
+await getUserLocal();
 /*----------------------------(show , close , send) modal rotin --------------------------- */
 const btnsShowModalrotin = document.querySelectorAll("#icon-add-rotin");
 const btnsCloseModalrotin = document.querySelector("#close-modal-rotin");

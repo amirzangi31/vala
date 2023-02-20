@@ -1,3 +1,8 @@
+import { getUserLocal } from "./api/validateLoginUser.js";
+
+await getUserLocal();
+
+
 /*------------------------------Render Page--------------------------------- */
 
 let btnHamburger = document.querySelectorAll(".inner-menu-mobile");
@@ -11,6 +16,8 @@ btnHamburger.forEach((item, index) => {
 
 
 /*------------------show and close modal-adamtaeid ------------------- */
+
+
 /* ------------------change img and content--------------------- */
 let btns = document.querySelectorAll(".btn-change");
 let contents = document.querySelectorAll(".content");
