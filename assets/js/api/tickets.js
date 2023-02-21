@@ -8,6 +8,20 @@ const getAllTickets = async () => {
   return data;
 };
 
+const sendTicket = async (data) => {
+  const res = await fetch(`${BASE_URL}ticket/all/`, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  const dataF = await res.json();
+  console.log(dataF);
+  return dataF;
+};
+
 const replyTicket = async (data) => {
   fetch(`${BASE_URL}ticket/reply/all/`, data)
     .then((response) => response.text())
@@ -24,4 +38,4 @@ const getReplyTicket = async () => {
   return data;
 };
 
-export { getAllTickets, replyTicket, getReplyTicket };
+export { getAllTickets, replyTicket, getReplyTicket ,sendTicket};

@@ -16,6 +16,12 @@
 
         <!-- AXIOS PACKAGE -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link
+rel="stylesheet"
+type="text/css"
+href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+/>
+
     </head>
     <body style="background-color:#292929;">
         <!-- START MENU-FIXED-RIGHT -->
@@ -152,16 +158,46 @@
         <!-- END MENU-BOTTOM -->
         <div class="container-fluid col-md-11 bg">
             <main class="main" style="padding-bottom: 60px;">
+                <div class="content-modal modal-add-ticket">
+                    <div class="inner-modal">
+                      <form class="px-4 pt-2">
+                        <div class="py-2">
+                          <div class="title">
+                            <div class="close-modal-add-post"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
+                            <div>ارسال تیکت  جدید</div>
+                          </div>
+                          
+                          <textarea
+                            name="modal"
+                            class="input-modal"
+                            id="text-ticket-add"
+                            cols="30"
+                            rows="7"
+                            placeholder="متن را تایپ کنید"></textarea>
+                        </div>
+                        <div class="btn-modal my-2 bg-white text-center rounded-2" style="cursor: pointer;" id="add-ticket">
+                          <div class="btn-sabt-post">
+                            ثبت
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  
                 <section class="content-items " id="container-tickets">
                     
                    
                       
                   </section>
+                  <div class="btn-send-ticket" id="show-modal">+</div>
             </main>
 
         </div>
 
-
+        <script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/toastify-js"
+        ></script>
         <script src="./assets/vendors/swiper.js"></script>
         <script src="./assets/js/test.js"></script>
         <script src="./assets/js/tickets.js" type="module"></script>

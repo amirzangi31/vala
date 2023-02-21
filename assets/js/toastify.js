@@ -6,7 +6,7 @@ const toast = async(text) => {
         newWindow: true,
         close: true,
         gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
+        position: "center", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
           background: "rgba(46, 46, 46, 0.7058823529)",

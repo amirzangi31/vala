@@ -1,5 +1,6 @@
-import { getAllTickets, getReplyTicket } from "./api/tickets.js";
+import { getAllTickets, getReplyTicket, sendTicket } from "./api/tickets.js";
 import { getDataLocal } from "./helper.js";
+import { toast } from "./toastify.js";
 
 const userId = await getDataLocal("user");
 
@@ -11,8 +12,8 @@ const renderPage = async () => {
   const container = document.querySelector("#container-tickets");
 
   tickets.forEach((item, index) => {
-const reply = replyTickets.filter(element => element.ticket === item.id)
-console.log(reply)
+    const reply = replyTickets.filter((element) => element.ticket === item.id);
+    console.log(reply);
     const note = `
         <div class="col-12 col-md-6 p-1">
         <div class="item-ticket ">
@@ -24,7 +25,11 @@ console.log(reply)
             </div>
             <span style="color:#fff;">پاسخ ادمین</span>
             <div class="des-2">
-                ${!!reply.length ? reply[0].message : "<span class='text-warning'>درحال بررسی</span>"}
+                ${
+                  !!reply.length
+                    ? reply[0].message
+                    : "<span class='text-warning'>درحال بررسی</span>"
+                }
              </div>
           </div>
     </div>
@@ -36,3 +41,38 @@ console.log(reply)
 
 await renderPage();
 /*----------------render page------------------*/
+
+/*-----------------send ticket------------------*/
+
+const showModal = document.querySelector("#show-modal");
+const modal = document.querySelector(".modal-add-ticket");
+const closeModal = document.querySelector(".modal-add-ticket .inner-modal");
+
+showModal.addEventListener("click", () => {
+  modal.classList.add("active");
+});
+closeModal.addEventListener("click", (e) => {
+  if (e.target.className === "inner-modal") {
+    modal.classList.remove("active");
+  }
+});
+
+const btnSendTicket = document.querySelector("#add-ticket");
+
+btnSendTicket.addEventListener("click", async () => {
+  const text = document.querySelector("#text-ticket-add");
+  if(!text.value.trim()){
+    await toast("لطفا تیکت خود را وارد کید");
+    text.focus()
+  }
+
+  const data = {
+    message: text.value,
+    user: userId,
+    status: "wa",
+  };
+
+  await sendTicket(data);
+});
+
+/*-----------------send ticket------------------*/

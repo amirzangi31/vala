@@ -183,7 +183,6 @@ const opratorId = await getUserLocalStorage("user-admin")
 
 
 btnAddPodcast.addEventListener("click", async () => {
-  console.log("dskavn");
   var formdata = new FormData();
   formdata.append("file", podcastAddPodcast.files[0], podcastAddPodcast.value);
   formdata.append("poster", imageAddPodcast.files[0], imageAddPodcast.value);
