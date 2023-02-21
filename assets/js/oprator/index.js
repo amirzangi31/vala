@@ -14,6 +14,9 @@ const renderPage = async () => {
   const allUsers = await getAllUsers();
 
   const allFood = await getAllFood();
+  const foods =allFood.filter(item => item.oprator === opratorId)
+
+
 
   // const foods = allFood.filter(item => item.)
 
@@ -142,7 +145,7 @@ const renderPage = async () => {
     containerUsers.innerHTML += note;
   });
 
-  allFood.forEach((item, index) => {
+  foods.forEach((item, index) => {
     const note = `<div class="row-food-category p-2">
     <div class="col-4">
       <div id="food-name" class="row-food-item">
