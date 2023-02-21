@@ -38,4 +38,13 @@ const getReplyTicket = async () => {
   return data;
 };
 
-export { getAllTickets, replyTicket, getReplyTicket ,sendTicket};
+const getAllReplyTicket = async() => {
+  const res = await fetch(`${BASE_URL}ticket/reply/all/`)
+  const data = await res.json()
+
+  return data
+
+}
+
+
+export { getAllTickets, replyTicket, getReplyTicket ,sendTicket,getAllReplyTicket};

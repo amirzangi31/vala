@@ -1,4 +1,4 @@
-import { getAllAzmayesh } from "../api/azmayesh.js";
+import { getAllAzmayesh, responseAzmayesh } from "../api/azmayesh.js";
 import { getUserWithId } from "../api/user.js";
 
 /*---------------render Page-------------------*/
@@ -25,9 +25,9 @@ const renderPage = async () => {
                   <div id="close" onclick="closeModalAnswer(${index})"><img src="../assets/images/icon-valla/close-modal.png" alt=""></div>
                   <div>پاسخ آزمایش</div>
                 </div>
-                <textarea  id="answer" cols="30" rows="10" class="input-item" placeholder="پاسخ آزمایش"></textarea>
+                <textarea  id="answer" cols="30" rows="10" class="input-item input-azmayesh" placeholder="پاسخ آزمایش"></textarea>
               </div>
-              <div class="btn-modal" onclick="answer(${item.id})" >
+              <div class="btn-modal" onclick="answer(${item.id}  , ${index})" >
                 <div class="btn-sabt-post">
                   ثبت
                 </div>
@@ -105,7 +105,16 @@ window.closeModalPhoto = (index) => {
 /*-----------------show photo azmayesh-------------------*/
 
 
-window.answer = async(id , userId) => {
-  
+window.answer = async( index  , id) => {
+  const modals = document.querySelectorAll(".input-azmayesh")[index]
+
+  const data ={
+    response : modals.value
+
+  }
+
+
+  await responseAzmayesh(id , data)
+
     
 }

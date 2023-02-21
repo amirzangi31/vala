@@ -1,5 +1,5 @@
 import { addFood, getAllFood } from "../api/oprator.js";
-import { getAllTickets } from "../api/tickets.js";
+import { getAllReplyTicket, getAllTickets } from "../api/tickets.js";
 import { getAllUsers, getUserWithId } from "../api/user.js";
 import { getDataLocal, shortTicket } from "../helper.js";
 
@@ -9,14 +9,12 @@ const opratorId = await getDataLocal("user-admin");
 
 const renderPage = async () => {
   const tickets = await getAllTickets();
-  //   const foods = await getAllFoods()
+  const replyTickets = await getAllReplyTicket();
 
   const allUsers = await getAllUsers();
 
   const allFood = await getAllFood();
-  const foods =allFood.filter(item => item.oprator === opratorId)
-
-
+  const foods = allFood.filter((item) => item.oprator === opratorId);
 
   // const foods = allFood.filter(item => item.)
 
@@ -27,74 +25,79 @@ const renderPage = async () => {
   const containerTicketsAnswer = document.querySelector(".answer-container");
   const containerUsers = document.querySelector("#container-users");
   const containerFood = document.querySelector("#container-food");
+
   tickets.forEach(async (item, index) => {
+    const isAns = replyTickets.find((elem) => elem.ticket === item.id);
+
     const note1 = `<div class="col-12 col-md-6 p-2">
-        <div class="ticket-item">
-          <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
-            <div class="imge-user">
-              <img src="../assets/images/5.png" alt="">
+          <div class="ticket-item">
+            <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
+              <div class="imge-user">
+                <img src="../assets/images/5.png" alt="">
+              </div>
+  
             </div>
-
-          </div>
-          <div class="col-5 col-md-6 content-ticket">
-            <div class="name-user">${item.user.name}</div>
-            <div class="description">
-              <div> ${shortTicket(item.message, 100)}</div>
-              <div class="more" id="more-btn"> در ادامه...</div>
-
-
+            <div class="col-5 col-md-6 content-ticket">
+              <div class="name-user">${item.user.name}</div>
+              <div class="description">
+                <div> ${shortTicket(item.message, 100)}</div>
+                <div class="more" id="more-btn"> در ادامه...</div>
+  
+  
+              </div>
+  
+  
             </div>
-
-
+            <div class="col-3 col-md-3 btn-answer-ticket">
+              ${
+                isAns
+                  ? "<span class='btn-answer btn-modal-1 bg-success text-white'>  پاسخ داده شده</span>"
+                  : "<span class='btn-answer btn-modal-1 '> پاسخ</span>"
+              }
+  
+            </div>
+  
           </div>
-          <div class="col-3 col-md-3 btn-answer-ticket">
-            <span class="btn-answer btn-modal-1">
-              پاسخ
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>`;
+  
+        </div>`;
     const note2 = `<div class="content-modal modal-tickettwo">
-        <div class="inner-modal">
-          <form class="px-4 pt-2">
-            <div class="py-2">
-              <div class="content-more-ticket">
-               ${item.message}
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="content-more-ticket">
+                 ${item.message}
+                </div>
+  
               </div>
-
-            </div>
-          </form>
-        </div>
-      </div>`;
+            </form>
+          </div>
+        </div>`;
     const note3 = `<div class="content-modal modal-ticket ">
-        <div class="inner-modal">
-          <form class="px-4 pt-2">
-            <div class="py-2">
-              <div class="name">jhg</div>
-              <div class="title">
-                ,knjh
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="name">jhg</div>
+                <div class="title">
+                  ,knjh
+                </div>
+                <textarea
+                  name="modal"
+                  class="input-modal input-answer"
+                  cols="30"
+                  rows="7"
+                  placeholder="پاسخ تیکت"></textarea>
               </div>
-              <textarea
-                name="modal"
-                class="input-modal input-answer"
-                cols="30"
-                rows="7"
-                placeholder="پاسخ تیکت"></textarea>
-            </div>
-            <div class="btns-modal">
-              <div class="btn-modal col-6"  onclick="answerTicket(${item.id} , ${index})">
-                <span class="btn-send-modal">ارسال</span>
+              <div class="btns-modal">
+                <div class="btn-modal col-6"  onclick="answerTicket(${item.id} , ${index})">
+                  <span class="btn-send-modal">ارسال</span>
+                </div>
+                <div class="btn-modal close-modal-adamtaeid col-6">
+                  <span>لغو</span>
+                </div>
               </div>
-              <div class="btn-modal close-modal-adamtaeid col-6">
-                <span>لغو</span>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>`;
+            </form>
+          </div>
+        </div>`;
 
     containerTickets.innerHTML += note1;
     containerTicketsMore.innerHTML += note2;
@@ -306,8 +309,6 @@ window.answerTicket = async (id, index) => {
     ...document.querySelectorAll(".input-modal.input-answer"),
   ][index];
 
-  
-
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
@@ -324,9 +325,9 @@ window.answerTicket = async (id, index) => {
     redirect: "follow",
   };
   fetch(`http://127.0.0.1:8000/ticket/reply/all/`, requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.log("error", error));
 };
 
 /*------------------------answer Ticket---------------------------*/

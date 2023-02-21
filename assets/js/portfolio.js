@@ -35,7 +35,7 @@ const renderPage = async () => {
       </div>
         <div class="col-6 col-md-2 p-3 portfolio-items">
                 <div class="portfolio-item">
-                  <img src=${item.file} alt="">
+                  <img src=${item.poster} alt="">
                 </div>
                 <div class="title-portfolio-item">عنوان پست</div>
 
