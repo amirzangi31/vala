@@ -37,7 +37,7 @@ const renderPage = async () => {
         </div>
         <div class="content-modal  modal-show-photo">
           <div class="inner-modal" onclick="closeModalPhoto(${index})">
-            <div class="image-container"><img src="${item.image}" alt=""></div>
+            <div class="image-container"><img src="http://127.0.0.1:8000/${item.image}" alt=""></div>
            </div>
         </div>
         <div class="ticket-item">
@@ -50,7 +50,7 @@ const renderPage = async () => {
           <div class="col-5 col-md-6 content-ticket">
             <div class="name-user">${user.name}</div>
             <div class="description">
-              <div> لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگره</div>
+              <div> ${item.descripton}</div>
               <div class="more " onclick="showPhoto(${index})"> در ادامه...</div>
             </div>
 
@@ -105,6 +105,7 @@ window.closeModalPhoto = (index) => {
 /*-----------------show photo azmayesh-------------------*/
 
 
-window.answer = async(id) => {
-    console.log(id);
+window.answer = async(id , userId) => {
+  
+    
 }
