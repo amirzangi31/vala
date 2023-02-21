@@ -1,7 +1,8 @@
 import { addPodcast } from "../api/podcast.js";
 import { getAllPost } from "../api/post.js";
 import { addStory, getAllStory } from "../api/story.js";
-import { shortTicket } from "../helper.js";
+import { getUserLocalStorage } from "../helper.js";
+import { getId, shortTicket } from "../helper.js";
 // await validateLogin();
 
 const renderPage = async () => {
@@ -178,6 +179,9 @@ const imageAddPodcast = document.querySelector("#image-podcast");
 const podcastAddPodcast = document.querySelector("#podcast");
 const textAddPodcast = document.querySelector("#text-podcast-add");
 
+const opratorId = await getUserLocalStorage("user-admin")
+
+
 btnAddPodcast.addEventListener("click", async () => {
   console.log("dskavn");
   var formdata = new FormData();
@@ -187,7 +191,7 @@ btnAddPodcast.addEventListener("click", async () => {
   formdata.append("like", 0);
   formdata.append("title", "پادکست شماره یک");
   formdata.append("types", "podcast");
-  formdata.append("oprator", 7);
+  formdata.append("oprator", +opratorId);
 
   var data = {
     method: "POST",
