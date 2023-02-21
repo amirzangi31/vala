@@ -1,5 +1,3 @@
-/*---------------------render page-----------------------*/
-
 import {
   addRavand,
   addRoutin,
@@ -8,6 +6,8 @@ import {
 } from "./api/routin.js";
 import { getUserWithId } from "./api/user.js";
 import { getDataLocal } from "./helper.js";
+/*---------------------render page-----------------------*/
+
 const userId = await getDataLocal("user");
 const user = await getUserWithId(+userId);
 
@@ -17,11 +17,9 @@ const renderPage = async () => {
   const ravands = await getAllRavand();
   const ravandUser = ravands.filter((item) => item.user === +userId);
 
-  console.log(ravandUser.length)
   const note = `
-
-
-    <div class="item-images-r" id="content-image">
+ <div class="item-images-r" id="content-image">
+    ${!ravandUser.length ? "<p class='display-6 text-white'>برای اضافه کردن عکس به روند بهبودی بروی + کلیک کنید</p>" : ""}
     ${Object.keys(ravandUser)
       .map((item) => {
         return `
@@ -45,7 +43,9 @@ const renderPage = async () => {
 
   container.innerHTML = note;
   const images = [...document.querySelector(`#content-image`).children];
-  images[0].classList.add("active");
+  if(ravandUser.length){
+    images[0].classList.add("active");
+  }
 };
 
 await renderPage();
@@ -121,17 +121,10 @@ const btnSendRavand = document.querySelector("#btn-ravand");
 
 btnSendRavand.addEventListener("click", async () => {
   const image = document.querySelector("#picture-ravand-add");
-  var formData = new FormData();
-  formData.append("image", image.files[0], image.value);
-  formData.append("user", +userId);
-  formData.append("routin", isRoutin.id);
 
-  var requestOptions = {
-    method: "POST",
-    body: formData,
-    redirect: "follow",
-  };
+ 
   if (!Boolean(isRoutin)) {
+    
     const data = {
       name: "amir",
       isActive: false,
@@ -141,7 +134,28 @@ btnSendRavand.addEventListener("click", async () => {
     };
 
     await addRoutin(data);
+
+    var formData = new FormData();
+    formData.append("image", image.files[0], image.value);
+    formData.append("user", +userId);
+    formData.append("routin", isRoutin.id);
+    var requestOptions = {
+      method: "POST",
+      body: formData,
+      redirect: "follow",
+    };
     await addRavand(requestOptions);
   }
+
+
+  var formData = new FormData();
+    formData.append("image", image.files[0], image.value);
+    formData.append("user", +userId);
+    formData.append("routin", isRoutin.id);
+    var requestOptions = {
+      method: "POST",
+      body: formData,
+      redirect: "follow",
+    };
   await addRavand(requestOptions);
 });

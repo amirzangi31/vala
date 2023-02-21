@@ -1,4 +1,5 @@
 import { addFood, getAllFood } from "../api/oprator.js";
+import { getAllRavand, getAllRoutin } from "../api/routin.js";
 import { getAllReplyTicket, getAllTickets } from "../api/tickets.js";
 import { getAllUsers, getUserWithId } from "../api/user.js";
 import { getDataLocal, shortTicket } from "../helper.js";
@@ -23,8 +24,8 @@ const renderPage = async () => {
   );
   const containerTicketsMore = document.querySelector(".more-container");
   const containerTicketsAnswer = document.querySelector(".answer-container");
-  const containerUsers = document.querySelector("#container-users");
   const containerFood = document.querySelector("#container-food");
+    
 
   tickets.forEach(async (item, index) => {
     const isAns = replyTickets.find((elem) => elem.ticket === item.id);
@@ -104,49 +105,7 @@ const renderPage = async () => {
     containerTicketsAnswer.innerHTML += note3;
   });
 
-  allUsers.forEach((item, index) => {
-    const note = `
-      <div class="col-12 col-md-6 p-2 kk">
-                <div class="item-user">
-                  <!-- imge-user -->
-                  <div class="col-2 imge-user">
-                    <div>
-                      <img src="${item.profileimage}" alt="">
-                    </div>
 
-                  </div>
-                  <!-- range-type -->
-                  <div class="col-5 contenthh" style="color: #fff;">
-                    <div class="name-user">${item.name}</div>
-                    <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-                    <input id="amount-cream" type="range" name="cream" list="amount" step="50">
-                    <datalist id="amount">
-                      <!-- <option value="0" label="کم"></option> -->
-                      <option value="50" label="21دی 01"></option>
-                      <!-- <option value="100" label="زیاد"></option> -->
-                    </datalist>
-
-                  </div>
-                  <!-- video-rotin -->
-                  <div class="col-5 video-rotin">
-                    <div class="video-item">
-                      <video src="../assets/images/jj.mp4"
-                        poster="../assets/images/poster.png" controls>
-
-                      </video>
-                    </div>
-
-                  </div>
-
-                </div>
-                <a href="../admin/Definition-of-diet.html?${item.id}">
-                  <span class="Definition-of-diet">تعریف رژیم غذایی</span>
-                </a>
-              
-              </div>`;
-
-    containerUsers.innerHTML += note;
-  });
 
   foods.forEach((item, index) => {
     const note = `<div class="row-food-category p-2">
@@ -170,6 +129,65 @@ const renderPage = async () => {
 
     containerFood.innerHTML += note;
   });
+
+
+  const allRoutin = await getAllRoutin();
+  const ravandUser = await getAllRavand();
+  const containerUsers = document.querySelector("#container-users");
+
+
+  allRoutin.forEach((item, index) => {
+    const ravand = ravandUser.filter((elem) => elem.routin === item.id);
+   
+    const note = `<div class="col-12 col-md-6 p-2 kk">
+        <div class="item-user">
+          <!-- imge-user -->
+          <div class="col-2 imge-user">
+            <div>
+              <img src="./assets/images/rotin/2.png" alt="">
+            </div>
+
+          </div>
+          <!-- range-type -->
+          <div class="col-5 contenthh" style="color: #fff;">
+            <div class="name-user" >رضا آخوندی</div>
+            <label id="title-type-range" for="amount-cream">روند بهبودی</label>
+            <input id="amount-cream-${index}" type="range" value="0" name="cream" 
+            list="amount" min="0" max='${ravand.length - 1}' step="${1}" oninput="changeHanlder(${index} , ${1})">
+            <button onclick="playHandler(${1})">play</button>
+            <button onclick="stopHandler()">stop</button>
+          </div>
+          <!-- video-rotin -->
+          <div class="col-5 video-rotin">
+            <div class="video-item ">
+              <div class="video-item images-item" id="content-image-${index}">
+                ${Object.keys(ravand)
+                  .map((item) => {
+                    return `
+                    <img class="image-user " src="http://127.0.0.1:8000/${ravand[item].image}" alt="">
+                    `;
+                  })
+                  .join("")}
+
+                
+              </div>
+            </div>
+            <a href="../admin/Definition-of-diet.html?${item.id}">
+            <span class="Definition-of-diet">تعریف رژیم غذایی</span>
+          </a>
+          </div>
+
+        </div>
+      </div>`;
+
+      containerUsers.innerHTML += note;
+  });
+
+  const images = document.querySelectorAll(".images-item")
+  images.forEach(item => {
+      item.children[0].classList.add("active")
+  })
+
 
   /* ------------------change img and content--------------------- */
   let btns = document.querySelectorAll(".btn-category-user");
@@ -331,3 +349,54 @@ window.answerTicket = async (id, index) => {
 };
 
 /*------------------------answer Ticket---------------------------*/
+/*------------------------play and stop slider------------------------*/
+let play = false;
+const timer = (name, inputName, step) => {
+  const images = [...document.querySelector(name).children];
+  images.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  images[0].classList.add("active");
+  let count = 0;
+
+  const input = document.querySelector(inputName);
+  input.value = 0;
+  const time = setInterval(() => {
+    console.log(count);
+    if (count === images.length - 1) return;
+    count++;
+    images.forEach((item, index) => {
+      item.classList.remove("active");
+    });
+    images[count].classList.add("active");
+    input.value += 1;
+    play = true;
+    console.log(play);
+  }, 1000);
+  window.stopHandler = () => {
+    clearInterval(time);
+  };
+};
+
+window.playHandler = (index, step) => {
+  timer(`#content-image-${index}`, `#amount-cream-${index}`, step);
+};
+
+window.changeHanlder = (index, step) => {
+  const input = document.querySelector(`#amount-cream-${index}`);
+
+  const images = [
+    ...document.querySelector(`#content-image-${index}`).children,
+  ];
+  const count = input.value / +step;
+
+  if (count === images.length) return;
+
+  images.forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  images[count].classList.add("active");
+};
+/*------------------------play and stop slider------------------------*/
