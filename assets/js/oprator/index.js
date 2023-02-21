@@ -52,7 +52,7 @@ const renderPage = async () => {
             <div class="col-3 col-md-3 btn-answer-ticket">
               ${
                 isAns
-                  ? "<span class='btn-answer btn-modal-1 bg-success text-white'>  پاسخ داده شده</span>"
+                  ? "<span class='btn-answer btn-modal-1 bg-success text-white' >  پاسخ داده شده</span>"
                   : "<span class='btn-answer btn-modal-1 '> پاسخ</span>"
               }
   
@@ -154,7 +154,7 @@ const renderPage = async () => {
             <label id="title-type-range" for="amount-cream">روند بهبودی</label>
             <input id="amount-cream-${index}" type="range" value="0" name="cream" 
             list="amount" min="0" max='${ravand.length - 1}' step="${1}" oninput="changeHanlder(${index} , ${1})">
-            <button onclick="playHandler(${1})">play</button>
+            <button onclick="playHandler(${index},${1})">play</button>
             <button onclick="stopHandler()">stop</button>
           </div>
           <!-- video-rotin -->
@@ -349,10 +349,14 @@ window.answerTicket = async (id, index) => {
 };
 
 /*------------------------answer Ticket---------------------------*/
+
+
+
 /*------------------------play and stop slider------------------------*/
 let play = false;
 const timer = (name, inputName, step) => {
   const images = [...document.querySelector(name).children];
+  
   images.forEach((item) => {
     item.classList.remove("active");
   });

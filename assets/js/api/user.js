@@ -26,4 +26,19 @@ const updateUser = async (id, data) => {
   return dataF;
 };
 
-export { getUserWithId, getAllUsers, updateUser };
+
+const deleteUser = async(id) => {
+  const res = await fetch(`${BASE_URL}user/GetId/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  const dataF = await res.json();
+
+  return dataF;
+}
+
+
+export { getUserWithId, getAllUsers, updateUser ,deleteUser};

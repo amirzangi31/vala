@@ -1,7 +1,6 @@
 import { getAllTickets, getReplyTicket, sendTicket } from "./api/tickets.js";
 import { getDataLocal } from "./helper.js";
 import { toast } from "./toastify.js";
-
 const userId = await getDataLocal("user");
 
 /*----------------render page------------------*/

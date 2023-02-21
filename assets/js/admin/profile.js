@@ -1,5 +1,5 @@
 import { getManager } from "../api/managers.js";
-import { getUserWithId } from "../api/user.js";
+import { deleteUser, getUserWithId, updateUser } from "../api/user.js";
 import { getPath, getUserLocalStorage } from "../helper.js";
 
 /*----------------render page-------------------*/
@@ -30,23 +30,23 @@ const renderPage = async () => {
                                    </label>
                                 <div class="information-item">
                                     <input type="text" value="${user.name}" class="item-user"
-                                        id="name-user" name="name-user">
+                                        id="name" name="name-user">
                                         <span><img src="../assets/images/icon-valla/edit.png" alt=""></span>
                                 </div>
                                 
                             </div>
                             <div class="col-12 p-2">
-                                <label for="name-user" class="title">نام خانوادگی
+                                <label for="name-user" class="title">سن 
                                    </label>
                                 <div class="information-item">
-                                    <input type="text" value="${user.name}" class="item-user"
-                                        id="family-user" name="family-user">
+                                    <input type="text" value="${user.age}" class="item-user"
+                                        id="age" name="family-user">
                                         <span><img src="../assets/images/icon-valla/edit.png" alt=""></span>
                                 </div>
                                 
                             </div>
                             <div class="col-12 p-2">
-                                <label for="name-user" class="title">شماره تماس
+                                <label for="phone" class="title">شماره تماس
                                    </label>
                                 <div class="information-item">
                                     <input type="text" value="${user.phone_number}" class="item-user"
@@ -67,7 +67,7 @@ const renderPage = async () => {
                             </div>
                             
 
-                            <div class="btn-sabt">
+                            <div class="btn-sabt" onclick="updateUser(${user.id}">
                                 <span class="col-3">ثبت </span>
                             </div>
 
@@ -81,8 +81,8 @@ const renderPage = async () => {
                                     شده</div></div>
                                     <div class="col-6 p-2"><div
                                       class="down-profile-item">روتین ها</div></div>
-                                     <div class="col-6 p-2"><div
-                                      class="down-profile-item" id="color">حذف کاربر</div></div>
+                                     <div class="col-6 p-2" ><div
+                                      class="down-profile-item" id="color" onclick="deleteHandler(${user.id})">حذف کاربر</div></div>
 
     </div>`;
 
@@ -92,3 +92,42 @@ const renderPage = async () => {
 await renderPage();
 
 /*----------------render page-------------------*/
+
+
+
+/*-----------------edit user------------------*/
+
+
+window.updateUser = async(id) =>{
+
+    const name = document.querySelector("#name").value
+    const age = document.querySelector("#age").value
+    const phone = document.querySelector("#phone").value
+    const password = document.querySelector("#password").value
+
+    const data ={
+        name,
+        age,
+        phone_number : phone,
+    }
+
+
+    await updateUser(id , data)
+
+
+}
+
+
+/*-----------------edit user------------------*/
+
+
+
+/*-----------------delete user------------------*/
+
+window.deleteHandler = async(id) => {
+    await deleteUser(id)
+}
+
+/*-----------------delete user------------------*/
+
+

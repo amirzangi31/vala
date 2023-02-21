@@ -1,4 +1,4 @@
-import { getManager } from "../api/managers.js";
+import { getManager, updateManager } from "../api/managers.js";
 import { getId } from "../helper.js";
 
 const id = getId(window.location.search);
@@ -41,7 +41,7 @@ const renderPage = async () => {
                                 </div>
                             </div>
                             <div class="pakage">
-                                <select name="brand" id="type-user" class="khadamat">
+                                <select name="brand" id="types" class="khadamat">
                                 ${Object.keys(allTypes)
                                   .map((key) => {
                                     return `<option value=${allTypes[key].type} ${allTypes[key].type === types && "selected = 'selected'"} >${allTypes[key].name}</option>`;
@@ -62,27 +62,28 @@ const renderPage = async () => {
                                    </label>
                                 <div class="information-item">
                                     <input type="text" value="${name}" class="item-user"
-                                        id="name-user" name="name-user">
+                                        id="name" name="name-user">
                                         <span><img src="../assets/images/icon-valla/edit.png" alt=""></span>
                                 </div>
                                 
                             </div>
-                            <div class="col-12 p-2">
-                                <label for="name-user" class="title">نام خانوادگی
-                                   </label>
-                                <div class="information-item">
-                                    <input type="text" value="${name}" class="item-user"
-                                        id="family-user" name="family-user">
-                                        <span><img src="../assets/images/icon-valla/edit.png" alt=""></span>
-                                </div>
-                                
-                            </div>
+                            
                             <div class="col-12 p-2">
                                 <label for="age-user" class="title">سن
                                    </label>
                                 <div class="information-item">
                                     <input type="text" value="${age}" class="item-user"
-                                        id="age-user" name="phone-number-user">
+                                        id="age" name="phone-number-user">
+                                        <span><img src="../assets/images/icon-valla/edit.png" alt=""></span>
+                                </div>
+                                
+                            </div>
+                            <div class="col-12 p-2">
+                                <label for="password-user" class="title">شماره تلفن
+                                   </label>
+                                <div class="information-item">
+                                    <input type="password" value="23123654" class="item-user"
+                                        id="phone" name="password">
                                         <span><img src="../assets/images/icon-valla/edit.png" alt=""></span>
                                 </div>
                                 
@@ -92,14 +93,14 @@ const renderPage = async () => {
                                    </label>
                                 <div class="information-item">
                                     <input type="password" value="23123654" class="item-user"
-                                        id="password-user" name="password">
+                                        id="password" name="password">
                                         <span><img src="../assets/images/icon-valla/edit.png" alt=""></span>
                                 </div>
                                 
                             </div>
                             
 
-                            <div class="btn-sabt" onclick="sabtInfo(${id})">
+                            <div class="btn-sabt" onclick="updateUser(${id})">
                                 <span class="col-3">ثبت </span>
                             </div>
 
@@ -145,3 +146,32 @@ window.sabtInfo = (id) => {
 };
 
 /*---------------------------sabt info-----------------------------*/
+
+
+
+/*-----------------edit user------------------*/
+
+
+window.updateUser = async(id) =>{
+
+    const name = document.querySelector("#name").value
+    const age = document.querySelector("#age").value
+    const phone = document.querySelector("#phone").value
+    const password = document.querySelector("#password").value
+    const types= document.querySelector("#types").value
+
+    const data ={
+        name,
+        age,
+        phone_number,
+        types,
+    }
+
+
+    await updateManager(id , data)
+
+
+}
+
+
+/*-----------------edit user------------------*/
