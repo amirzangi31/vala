@@ -167,6 +167,19 @@ input {
   border: 1px solid white;
 }
 
+.item-images-r .image {
+  display: none;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.item-images-r .image.active {
+  display: block;
+}
+
 .highlit-category {
   padding: 10px;
   position: fixed;

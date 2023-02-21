@@ -1,23 +1,36 @@
 @import "./colors";
 
+.btn-send-ticket {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  background-color: $color-bg-secondary;
+  color: #fff;
+  font-size: 60px;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+  position: absolute;
+  left: 3%;
+  bottom: 10%;
+  border: 1px solid white;
+}
 
-
-.btn-send-ticket{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    -o-border-radius: 50%;
-    background-color: $color-bg-secondary;
-    color: #fff;
-    font-size: 60px;
-    display: grid;
-    place-content: center;
-    cursor: pointer;
-    position: absolute;
-    left: 3%;
-    bottom: 10%;
-    border: 1px solid white;
+.item-images-r {
+  .image {
+    display: none;
+    border: 1px solid #fff;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    &.active {
+      display: block;
+    }
+  }
 }

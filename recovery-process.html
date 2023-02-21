@@ -165,38 +165,39 @@
           </div>
         </div>
         <div class="down-category-user">
-            <div class="recovery-process col-12 col-lg-8">
+            <div class="recovery-process col-12 col-lg-8" id="content">
                 
-                    <div class="video-item">
-                        <video src="./assets/images/jj.mp4"
-                          poster="./assets/images/ravand.png" controls class="col-12 col-lg-8">
-  
-                        </video>
-                        <div class="up-video">
-                          <img src="./assets/images/brad22.png" alt="">
-                        </div>
-                    </div>
-                      <div class=" col-12 col-lg-8 p-1" style="color: #fff;">
-                        <div class=" contenthh">
-                            <div class="name-user">رضا آخوندی</div>
-                        <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-                        <input id="amount-cream" type="range" name="cream" list="amount" step="50">
-                        <datalist id="amount">
-                          <option value="0" label="21دی 01"></option>
-                          <option value="50" label="21دی 01"></option>
-                          <option value="100" label="21دی 01"></option>
-    
-                        </datalist>
-                        </div>
-                        
-    
-                      </div>
-                
+                    
             </div>
         </div>
+        <div class="content-modal modal-add-ravand">
+          <div class="inner-modal">
+            <form class="px-4 pt-2">
+              <div class="py-2">
+                <div class="title">
+                  <div class="close-modal-add-post"><img class="close" src="./assets/images/icon-valla/close-modal.png" alt=""></div>
+                  <div>افزودن عکس روند جدید</div>
+                </div>
+                <div class="uploade-imge text-center">
+                  <label class="item-upload mx-auto px-4 py-1 rounded-1 bg-white" style="cursor : pointer" for="picture-ravand-add" >
+                    تصویر
+                  </label>
+                  <input type="file" name="photo" id="picture-ravand-add"  hidden />
+                </div> 
+                
+              </div>
+              <div class="btn-modal" id="btn-ravand">
+                <div class="btn-sabt-post">
+                  ثبت
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="btn-send-ticket" id="btn-show-modal"  title="اضافه کردن عکس روند بهبود">+</div>
       </main>
 
     </div>
-    <script src="../assets/js/admin/add-user-oprator.js"></script>
+    <script src="./assets/js/recovery-process.js" type="module"></script>
   </body>
 </html>
