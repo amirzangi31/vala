@@ -1,23 +1,24 @@
-import { addManager } from "../api/add-manager.js";
-import { getAllManagers } from "../api/managers.js";
+import { addManager, addOLaser } from "../api/add-manager.js";
+import { getAllManagers, getAllOLaser } from "../api/managers.js";
+import { phoneHandler } from "../helper.js";
 
 
 /*-----------------render Page ------------------*/
 
 const renderPage = async () => {
-  const allMangers = await getAllManagers();
-  const filterManager = allMangers.filter((item) => item.types !== "admin");
+  const allMangers = await getAllOLaser();
+//   const filterManager = allMangers.filter((item) => item.types !== "admin");
 
   const containerManagers = document.querySelector("#container-managers");
 
-  filterManager.forEach((item, index) => {
+  allMangers.forEach((item, index) => {
     {
       const note = `<div class="col-12 col-md-6 p-2">
-    <a href="./profile-user.html?${item.id}">
+    <a href="#">
       <div class="item-user">
         <div class="col-3 col-md-2">
           <div class="image-user">
-            <img src="http://127.0.0.1:8000/${item.image}"
+            <img src="http://127.0.0.1:8000/media/8.png"
             alt="${item.name}">
           </div>
           </div>
@@ -171,25 +172,24 @@ closeModal.addEventListener("click", () => {
 /*-----------------btn add manager------------------*/
 const btnAdd = document.querySelector("#btn-add-oprator");
 
-const image = document.querySelector("#image");
 const name = document.querySelector("#name");
-const age = document.querySelector("#age");
-const title = document.querySelector("#title");
+const phone = document.querySelector("#phone");
 
 btnAdd.addEventListener("click", async () => {
-  var formdata = new FormData();
-  formdata.append("image", image.files[0], image.value);
-  formdata.append("name", name.value);
-  formdata.append("age", +age.value);
-  formdata.append("types", title.value);
+    const data = {
+        name : name.value,
+        phonenumber : phoneHandler(phone.value)
+    }
+    
+    const res = {
+        method : "POST",
+        body : JSON.stringify(data),
+        headers : {
+            "Content-Type" : "application/json"
+        }
+    }
 
-  var requestOptions = {
-    method: "POST",
-    body: formdata,
-    redirect: "follow",
-  };
-
-  await addManager(requestOptions);
+    await addOLaser(res)
 });
 
 /*-----------------btn add manager------------------*/

@@ -6,6 +6,14 @@ const getAllManagers = async () => {
 
   return data;
 };
+
+const getAllOLaser = async () => {
+  const res = await fetch(`${BASE_URL}cortex/op/all`);
+  const data = await res.json();
+
+  return data;
+};
+
 const getManager = async (id) => {
   const res = await fetch(`${BASE_URL}manager/GetId/${id}`);
   const data = await res.json();
@@ -48,4 +56,12 @@ const getProgram = async (id) => {
   return data;
 };
 
-export { getAllManagers, addOprator, getManager, getAllFood, getProgram,updateManager };
+export {
+  getAllManagers,
+  addOprator,
+  getManager,
+  getAllFood,
+  getProgram,
+  updateManager,
+  getAllOLaser,
+};
