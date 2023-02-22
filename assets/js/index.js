@@ -28,7 +28,7 @@ const renderPage = async () => {
   allStories.forEach((item, index) => {
     const note = ` 
     
-    <div class="col-3 col-md-3 p-2 highlit-item story_item" >
+    <div class="col-3 col-md-2 p-2 highlit-item story_item" >
     <div class="highlit-item-inner">
       <img src="${item.file}" alt="">
     </div>
@@ -46,8 +46,8 @@ const renderPage = async () => {
   </div>
  <p class="text-white text-justify my-4" style="font-size : 1.5em">asodnviuasdbvuasbivasdbdsavbsadjk</p>
   <div class="text-white">
-        <button class="display-1 mx-2 next" onclick="nextHandler(${index})"><</h1>
-        <button class="display-1 mx-2 prev" onclick="prevHandler(${index})">></button>
+        <button class="display-1 mx-2 btn-story next " onclick="nextHandler(${index})"><</h1>
+        <button class="display-1 mx-2 btn-story prev " onclick="prevHandler(${index})">></button>
   </div>
 </div>
   

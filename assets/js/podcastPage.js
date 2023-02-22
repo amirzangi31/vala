@@ -112,6 +112,22 @@ const renderPage = async () => {
     contents[0].classList.add("active");
   }
 
+  document.addEventListener(
+    "play",
+    (e) => {
+      let audios = document.querySelectorAll("audio");
+  
+      for (let i = 0; i < audios.length; i++) {
+        if (audios[i] !== e.target) {
+          audios[i].pause();
+        }
+      }
+    },
+    true
+  );
+  
+
+
   // ---------------------------------story-------------------------------------//
   let story = document.querySelectorAll(".story_item");
   let modal_story = document.querySelectorAll(" .modal-hilight-pro");

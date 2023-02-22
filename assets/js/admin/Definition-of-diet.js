@@ -7,7 +7,7 @@ const opraotrId = await getDataLocal("user-admin");
 
 const table = [
   { title: "شنبه" },
-  { title: "یک شنبه" },
+  { title: "یکشنبه" },
   { title: "دو شنبه" },
   { title: "سه شنبه" },
   { title: "چهار شنبه" },
@@ -34,7 +34,7 @@ const renderPage = async () => {
     const note = `
     <div class="text-center" style="width : 12.5%">${item.title}</div>
     `;
-    const noteOne = `<div class="d-flex justify-content-between align-items-center flex-column text-center" style="width : 12.5%">
+    const noteOne = `<div class="d-flex justify-content-between align-items-center flex-column text-center  nn" style="width : 12.5%">
     ${Object.keys(v)
       .map((key) => {
         return `

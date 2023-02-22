@@ -180,6 +180,19 @@ input {
   display: block;
 }
 
+.btn-story {
+  position: absolute;
+  top: 50%;
+  color: white;
+  background: transparent;
+}
+.btn-story.next {
+  right: 10px;
+}
+.btn-story.prev {
+  left: 10px;
+}
+
 .highlit-category {
   padding: 10px;
   position: fixed;
@@ -1714,7 +1727,18 @@ input {
   bottom: 0;
 }
 
+@media (max-width: 940px) {
+  .content-1 {
+    width: 900px;
+  }
+  .days-week {
+    width: 900px;
+  }
+}
 @media (max-width: 768px) {
+  .content-title-row {
+    width: 900px;
+  }
   .user-category {
     padding: 10px 10px;
   }
@@ -1727,11 +1751,6 @@ input {
   }
   .cc .content-Definition-of-diet {
     padding: 15px !important;
-  }
-  .cc .content-Definition-of-diet .content-Definition-inner {
-    border: 1px solid rgba(171, 169, 169, 0.5450980392);
-    border-radius: 10px !important;
-    overflow: hidden;
   }
   .cc .content-Definition-of-diet .content-Definition-inner table {
     border-collapse: collapse;
@@ -2023,7 +2042,18 @@ input {
   min-height: 100px;
 }
 
+@media (max-width: 940px) {
+  .content-1 {
+    width: 900px;
+  }
+  .days-week {
+    width: 900px;
+  }
+}
 @media (max-width: 768px) {
+  .content-title-row {
+    width: 900px;
+  }
   .user-category {
     padding: 10px 10px;
   }
@@ -2036,11 +2066,6 @@ input {
   }
   .cc .content-Definition-of-diet {
     padding: 15px !important;
-  }
-  .cc .content-Definition-of-diet .content-Definition-inner {
-    border: 1px solid rgba(171, 169, 169, 0.5450980392);
-    border-radius: 10px !important;
-    overflow: hidden;
   }
   .cc .content-Definition-of-diet .content-Definition-inner table {
     border-collapse: collapse;

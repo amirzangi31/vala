@@ -22,7 +22,7 @@ const renderPage = async () => {
   allStories.forEach((item, index) => {
     const note = ` 
     
-    <div class="col-3 col-md-3 p-2 highlit-item story_item" >
+    <div class="col-3 col-md-2 p-2 highlit-item story_item" >
     <div class="highlit-item-inner">
       <img src="${item.file}" alt="">
     </div>

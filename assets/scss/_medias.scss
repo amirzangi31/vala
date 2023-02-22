@@ -1,5 +1,14 @@
 // style for menu-mobile
+@media (max-width: 940px) {
+  .content-1{width:900px;}
+  .days-week{
+    width:900px;
+  }
+ }
 @media (max-width: 768px) {
+  .content-title-row{
+    width: 900px;
+  }
   .user-category{
     padding: 10px 10px;
   }
@@ -15,9 +24,7 @@
         padding: 15px !important;
 
         .content-Definition-inner{
-            border: 1px solid #aba9a98b;
-           border-radius: 10px !important;
-           overflow: hidden;
+           
             table {
                 border-collapse: collapse;
                 padding: 10px;

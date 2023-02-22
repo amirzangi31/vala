@@ -25,7 +25,6 @@ const renderPage = async () => {
   const containerTicketsMore = document.querySelector(".more-container");
   const containerTicketsAnswer = document.querySelector(".answer-container");
   const containerFood = document.querySelector("#container-food");
-    
 
   tickets.forEach(async (item, index) => {
     const isAns = replyTickets.find((elem) => elem.ticket === item.id);
@@ -105,8 +104,6 @@ const renderPage = async () => {
     containerTicketsAnswer.innerHTML += note3;
   });
 
-
-
   foods.forEach((item, index) => {
     const note = `<div class="row-food-category p-2">
     <div class="col-4">
@@ -130,15 +127,13 @@ const renderPage = async () => {
     containerFood.innerHTML += note;
   });
 
-
   const allRoutin = await getAllRoutin();
   const ravandUser = await getAllRavand();
   const containerUsers = document.querySelector("#container-users");
 
-
   allRoutin.forEach((item, index) => {
     const ravand = ravandUser.filter((elem) => elem.routin === item.id);
-   
+
     const note = `<div class="col-12 col-md-6 p-2 kk">
         <div class="item-user">
           <!-- imge-user -->
@@ -153,7 +148,9 @@ const renderPage = async () => {
             <div class="name-user" >رضا آخوندی</div>
             <label id="title-type-range" for="amount-cream">روند بهبودی</label>
             <input id="amount-cream-${index}" type="range" value="0" name="cream" 
-            list="amount" min="0" max='${ravand.length - 1}' step="${1}" oninput="changeHanlder(${index} , ${1})">
+            list="amount" min="0" max='${
+              ravand.length - 1
+            }' step="${1}" oninput="changeHanlder(${index} , ${1})">
             <button onclick="playHandler(${index},${1})">play</button>
             <button onclick="stopHandler()">stop</button>
           </div>
@@ -180,14 +177,131 @@ const renderPage = async () => {
         </div>
       </div>`;
 
-      containerUsers.innerHTML += note;
+    containerUsers.innerHTML += note;
   });
 
-  const images = document.querySelectorAll(".images-item")
-  images.forEach(item => {
-      item.children[0].classList.add("active")
-  })
+  const images = document.querySelectorAll(".images-item");
+  images.forEach((item) => {
+    item.children[0].classList.add("active");
+  });
 
+  //for test
+  const arr = [{}, {}, {}, {}, {}, {}];
+
+  const containerMoshavereh = document.querySelector("#container-moshavereh");
+  const moreMoshavereh = document.querySelector("#more-m");
+  const modalMoshavereh = document.querySelector("#modal-m");
+
+  arr.forEach((item) => {
+    const more = `<div class="content-modal modal-tickettwo">
+    <div class="inner-modal">
+      <form class="px-4 pt-2">
+        <div class="py-2">
+          <div class="content-more-ticket">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+            صنعت چاپ، و با استفاده از طراحان گرافیک است،
+            چاپگرها و متون بلکه روزنامه و مجله در ستون و
+            سطرآنچنان که لازم است، و برای شرایط فعلی
+            تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+            بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
+            شصت و سه درصد گذشته حال و آینده، شناخت فراوان
+            جامعه و متخصصان را می طلبد، تا با نرم افزارها
+            شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
+            طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
+            کرد، در این صورت می توان امید داشت که تمام و
+            دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
+            به پایان رسد و زمان مورد نیاز شامل حروفچینی
+            دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
+            دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+            صنعت چاپ، و با استفاده از طراحان گرافیک است،
+            چاپگرها و متون بلکه روزنامه و مجله در ستون و
+            سطرآنچنان که لازم است، و برای شرایط فعلی
+            تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+            بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
+            شصت و سه درصد گذشته حال و آینده، شناخت فراوان
+            جامعه و متخصصان را می طلبد، تا با نرم افزارها
+            شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
+            طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
+            کرد، در این صورت می توان امید داشت که تمام و
+            دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ
+            به پایان رسد و زمان مورد نیاز شامل حروفچینی
+            دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
+            دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>`;
+    const modal = `
+    <div class="content-modal modal-ticket">
+                <div class="inner-modal">
+                  <form class="px-4 pt-2">
+                    <div class="py-2">
+                      <div class="name">jhg</div>
+                      <div class="title">
+                        ,knjh
+                      </div>
+                      <textarea
+                        name="modal"
+                        class="input-modal"
+                        cols="30"
+                        rows="7"
+                        placeholder="پاسخ تیکت"></textarea>
+                    </div>
+                    <div class="btns-modal">
+                      <div class="btn-modal col-6">
+                        <span class="btn-send-modal">ارسال</span>
+                      </div>
+                      <div class="btn-modal close-modal-adamtaeid col-6">
+                        <span>لغو</span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>`;
+
+    const ticketM = `<div class="col-12 col-md-6 p-2">
+    <div class="ticket-item">
+      <div class="col-4 col-md-3 d-flex d-flex flex-column align-items-center justify-content-center">
+        <div class="imge-user">
+          <img src="../assets/images/5.png" alt="">
+        </div>
+
+      </div>
+      <div class="col-5 col-md-6 content-ticket">
+        <div class="d-flex justify-content-between">
+          <div class="name-user">رضا آخوندی</div>
+          <div style="text-align:end;">1401/2/10</div>
+        </div>
+       
+        <div class="description">
+          <div> لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی
+            است .
+            لورم ایپسوم با تولید سادگی در صنعت چاپ و تکنولوژی است .</div>
+          <div class="more" id="more-btn"> در ادامه...</div>
+
+
+        </div>
+
+
+      </div>
+      <div class="col-3 col-md-3 btn-answer-ticket">
+        <span class="btn-answer btn-modal-1">
+          پاسخ
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>`;
+
+    containerMoshavereh.innerHTML += ticketM;
+    moreMoshavereh.innerHTML += more;
+    modalMoshavereh.innerHTML += modal;
+  });
 
   /* ------------------change img and content--------------------- */
   let btns = document.querySelectorAll(".btn-category-user");
@@ -350,13 +464,11 @@ window.answerTicket = async (id, index) => {
 
 /*------------------------answer Ticket---------------------------*/
 
-
-
 /*------------------------play and stop slider------------------------*/
 let play = false;
 const timer = (name, inputName, step) => {
   const images = [...document.querySelector(name).children];
-  
+
   images.forEach((item) => {
     item.classList.remove("active");
   });

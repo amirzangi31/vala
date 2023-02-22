@@ -95,6 +95,19 @@
     align-items: center;
     padding: 10px;
     .recovery-process{
+        .btn-pl{
+            font-size: 15px;
+            background-color: #a10ab2;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+}
     display: flex;
     justify-content: center;
     flex-direction: column;

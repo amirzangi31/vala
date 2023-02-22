@@ -34,8 +34,8 @@ const renderPage = async () => {
             <div class="name-user">${user.name}</div>
         <label id="title-type-range" for="amount-cream">روند بهبودی</label>
         <input id="amount-cream" type="range" value="0" min="0" max="${ravandUser.length - 1}" name="cream" list="amount" step="1" oninput="changeHanlder(${1})">
-        <button onclick="playHandler(${1})">play</button>
-        <button onclick="stopHandler()">stop</button>
+        <button class="btn-pl" onclick="playHandler(${1})">play</button>
+        <button class="btn-pl" onclick="stopHandler()">stop</button>
         </div>
         
       </div>
