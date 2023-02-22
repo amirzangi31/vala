@@ -10,6 +10,7 @@ const toast = async(text) => {
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
           background: "rgba(46, 46, 46, 0.7058823529)",
+          fontSize : "24px"
         },
         onClick: function(){} // Callback after click
       }).showToast();
