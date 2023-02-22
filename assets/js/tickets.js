@@ -1,6 +1,10 @@
 import { getAllTickets, getReplyTicket, sendTicket } from "./api/tickets.js";
 import { getDataLocal } from "./helper.js";
 import { toast } from "./toastify.js";
+import { getUserLocal } from "./api/validateLoginUser.js`";
+
+await getUserLocal();
+
 const userId = await getDataLocal("user");
 
 /*----------------render page------------------*/

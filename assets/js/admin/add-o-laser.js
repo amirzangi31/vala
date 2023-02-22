@@ -1,7 +1,8 @@
 import { addManager, addOLaser } from "../api/add-manager.js";
 import { getAllManagers, getAllOLaser } from "../api/managers.js";
 import { phoneHandler } from "../helper.js";
-
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 
 /*-----------------render Page ------------------*/
 

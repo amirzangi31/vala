@@ -3,6 +3,9 @@ import { addUser } from "./api/signandlogin.js";
 import { getDataLocal, getUserLocalStorage, phoneHandler } from "./helper.js";
 import { toast } from "./toastify.js";
 
+import { getUserLocal } from "./api/validateLoginUser.js`";
+
+await getUserLocal();
 
 
 /* ------------------change step and content--------------------- */

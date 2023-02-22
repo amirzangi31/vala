@@ -5,10 +5,10 @@ import { getAllStory } from "./api/story.js";
 import { getUserWithId } from "./api/user.js";
 import { getUserLocal } from "./api/validateLoginUser.js";
 import { shortTicket } from "./helper.js";
-import { toast } from "./toastify.js";
 
-//get userid from localstorage
+
 await getUserLocal();
+
 
 const user = await getUserWithId(JSON.parse(localStorage.getItem("user")));
 

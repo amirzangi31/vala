@@ -5,9 +5,6 @@ const getUserLocal = async() => {
     }else {
         return;
     }
-
 }
-
-
 
 export {getUserLocal}

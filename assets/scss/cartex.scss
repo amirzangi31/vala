@@ -144,6 +144,7 @@
               padding: 20px;
             }
              .content-table{
+              position: relative;
                  .information{
                      display: flex;
                      justify-content: space-around;
@@ -163,6 +164,8 @@
                  }
                
                 .content-title-row{
+                  position: relative;
+                  padding-bottom: 50px;
                     .title-row{
                         display: flex;
                         justify-content: space-between;

@@ -1,6 +1,7 @@
 import { addManager } from "../api/add-manager.js";
 import { getAllManagers } from "../api/managers.js";
-
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 
 /*-----------------render Page ------------------*/
 

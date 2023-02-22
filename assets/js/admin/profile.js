@@ -1,7 +1,8 @@
 import { getManager } from "../api/managers.js";
 import { deleteUser, getUserWithId, updateUser } from "../api/user.js";
 import { getPath, getUserLocalStorage } from "../helper.js";
-
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 /*----------------render page-------------------*/
 
 const idUrl = await getPath(window.location.search);

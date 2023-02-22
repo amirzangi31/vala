@@ -3,7 +3,9 @@ import { getAllPost } from "../api/post.js";
 import { addStory, getAllStory } from "../api/story.js";
 import { getUserLocalStorage } from "../helper.js";
 import { getId, shortTicket } from "../helper.js";
-// await validateLogin();
+
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 
 const renderPage = async () => {
   const allPosts = await getAllPost();

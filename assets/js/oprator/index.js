@@ -4,6 +4,8 @@ import { getAllReplyTicket, getAllTickets } from "../api/tickets.js";
 import { getAllUsers, getUserWithId } from "../api/user.js";
 import { getDataLocal, shortTicket } from "../helper.js";
 
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 const opratorId = await getDataLocal("user-admin");
 
 /*------------------------render page---------------------------*/
@@ -463,6 +465,8 @@ window.answerTicket = async (id, index) => {
 };
 
 /*------------------------answer Ticket---------------------------*/
+
+
 
 /*------------------------play and stop slider------------------------*/
 let play = false;

@@ -1,6 +1,7 @@
 import { getAllAzmayesh, responseAzmayesh } from "../api/azmayesh.js";
 import { getUserWithId } from "../api/user.js";
-
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 /*---------------render Page-------------------*/
 
 const getUser = async (id) => {

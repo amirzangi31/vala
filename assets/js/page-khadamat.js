@@ -1,5 +1,8 @@
 import { getAllManagers } from "./api/managers.js";
 import { getPath } from "./helper.js";
+import { getUserLocal } from "./api/validateLoginUser.js`";
+
+await getUserLocal();
 
 const path = await getPath(window.location.search);
 

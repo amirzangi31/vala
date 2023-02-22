@@ -6,6 +6,10 @@ import {
 } from "./api/routin.js";
 import { getUserWithId } from "./api/user.js";
 import { getDataLocal } from "./helper.js";
+import { getUserLocal } from "./api/validateLoginUser.js`";
+
+await getUserLocal();
+
 /*---------------------render page-----------------------*/
 
 const userId = await getDataLocal("user");

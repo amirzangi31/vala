@@ -1,3 +1,7 @@
+import { getUserLocal } from "./api/validateLoginUser.js`";
+
+await getUserLocal();
+
 /*-------------------show Modal Moshavereh----------------------*/
 const btnShowModalM = document.querySelector("#btn-moshavereh");
 const closeModal = document.querySelector("#modal-moshavereh .inner-modal");

@@ -1,6 +1,7 @@
 import { getManager, updateManager } from "../api/managers.js";
 import { getId } from "../helper.js";
-
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 const id = getId(window.location.search);
 
 const manager = await getManager(3);

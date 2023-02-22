@@ -1,3 +1,9 @@
+import { getUserLocal } from "./api/validateLoginUser.js`";
+
+await getUserLocal();
+
+
+
 let btnHamburger = document.querySelector(".menu-admins");
 
   

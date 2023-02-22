@@ -53,6 +53,14 @@ const phoneHandler = (text) => {
 
   return three;
 }
+const phoneHandlerReverse = (text) => {
+  console.log(text);
+  const one = text.split("")
+  const two = one.slice(3)
+  const three = `0${two.join("")}`
+
+  return three;
+}
 
 
 
@@ -60,6 +68,7 @@ const phoneHandler = (text) => {
 
 export {
   shortTicket,
+  phoneHandlerReverse,
   getId,
   removeUserLocal,
   setUserLocal,

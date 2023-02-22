@@ -1,4 +1,4 @@
-import { getUserLocal } from "./api/validateLoginUser.js";
+import { getUserLocal } from "./api/validateLoginUser.js`";
 
 await getUserLocal();
 

@@ -180,6 +180,22 @@ input {
   display: block;
 }
 
+.btn-add-row {
+  width: 100%;
+  background-color: rgb(72, 72, 72);
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 1.4em;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.btn-add-row.no-active {
+  opacity: 0.5;
+}
+
 .btn-story {
   position: absolute;
   top: 50%;
@@ -2183,6 +2199,22 @@ input {
   display: block;
 }
 
+.btn-add-row {
+  width: 100%;
+  background-color: rgb(72, 72, 72);
+  padding: 10px 0;
+  text-align: center;
+  color: #fff;
+  font-size: 1.4em;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.btn-add-row.no-active {
+  opacity: 0.5;
+}
+
 .btn-story {
   position: absolute;
   top: 50%;
@@ -4139,6 +4171,9 @@ input {
   border-radius: 40px;
   padding: 20px;
 }
+.hh .cc .content-Definition-inner .content-table {
+  position: relative;
+}
 .hh .cc .content-Definition-inner .content-table .information {
   display: flex;
   justify-content: space-around;
@@ -4155,6 +4190,10 @@ input {
   outline: none;
   color: #fff;
   text-align: center;
+}
+.hh .cc .content-Definition-inner .content-table .content-title-row {
+  position: relative;
+  padding-bottom: 50px;
 }
 .hh .cc .content-Definition-inner .content-table .content-title-row .title-row {
   display: flex;

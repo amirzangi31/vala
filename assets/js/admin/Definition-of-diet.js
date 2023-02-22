@@ -1,6 +1,8 @@
 import { getAllFood, getProgram } from "../api/managers.js";
 import { addProgram } from "../api/program.js";
 import { getDataLocal, getPath } from "../helper.js";
+import { validateLogin } from "../api/validateLoginAdmin.js";
+await validateLogin()
 const userId = await getPath(window.location.search);
 
 const opraotrId = await getDataLocal("user-admin");

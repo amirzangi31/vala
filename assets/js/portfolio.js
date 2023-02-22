@@ -1,6 +1,9 @@
 import { getManager } from "./api/managers.js";
 import { getAllPost } from "./api/post.js";
 import { getId } from "./helper.js";
+import { getUserLocal } from "./api/validateLoginUser.js`";
+
+await getUserLocal();
 
 const id = await getId(window.location.search);
 
