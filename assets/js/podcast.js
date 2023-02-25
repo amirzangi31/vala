@@ -1,6 +1,4 @@
-import { getUserLocal } from "./api/validateLoginUser.js";
 
-await getUserLocal();
  /*------------------------------Render Page--------------------------------- */
 
 //  let btnHamburger = document.querySelectorAll(".inner-content-post-two");

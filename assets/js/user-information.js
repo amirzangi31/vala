@@ -1,8 +1,8 @@
 import { getUserWithId, updateUser } from "./api/user.js";
 import { getDataLocal } from "./helper.js";
-import { getUserLocal } from "./api/validateLoginUser.js`";
+// import { getUserLocal } from "./api/validateLoginUser.js`";
 
-await getUserLocal();
+// await getUserLocal();
 
 /*----------------render Page---------------------*/
 

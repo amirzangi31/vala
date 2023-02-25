@@ -1,6 +1,5 @@
-import { getUserLocal } from "./api/validateLoginUser.js`";
-
-await getUserLocal();
+import { getUserWithId } from "./api/user.js";
+import { getDataLocal } from "./helper.js";
 
 
 
@@ -19,3 +18,16 @@ btnHamburger.addEventListener("click", (e) => {
     return;
   }
 });
+
+const userId = await getDataLocal("user")
+const user = await getUserWithId(+userId)
+
+
+const renderPage = async() =>{
+  const score = document.querySelector("#score")
+  console.log(score)
+  score.innerHTML = `${user.wallet} امتیاز`
+}
+
+
+await renderPage()

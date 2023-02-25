@@ -1,9 +1,7 @@
 import { getManager } from "./api/managers.js";
 import { getAllPost } from "./api/post.js";
 import { getId } from "./helper.js";
-import { getUserLocal } from "./api/validateLoginUser.js`";
 
-await getUserLocal();
 
 const id = await getId(window.location.search);
 
@@ -18,7 +16,9 @@ const renderPage = async () => {
   const postO = posts.filter((item) => item.oprator === +id);
 
   postO.forEach((item) => {
-    const isPod = postO.find((item) => item.poster);
+    const isPod = postO.find((elem) => item.types === "podcast");
+    console.log(!!isPod)
+    
     const note = `
         <div class="content-modal modal-portfolio">
 
@@ -28,17 +28,12 @@ const renderPage = async () => {
               <img src="./assets/images/icon-valla/close-modal.png" alt="">
             </div>
             <div class="image-portifilo">
-            ${
-              isPod
-                ? `
+           
               <div class="d-flex justify-content-between align-items-center flex-column">
               <img src="${item.poster}" />
-              <audio controls class="my-2"><source src='${item.file}'  type='audio/mpeg' ></audio>
+              ${!!isPod ? `<audio controls class="my-2"><source src='${item.file}'  type='audio/mpeg' ></audio>` : ""}
               </div>
-
-              `
-                : "<img src=${isPod ? item.poster : item.file} alt='' />"
-            }
+              
             </div>
             <div class="title text-center " style="font-size : 24px">
                 ${item.description}

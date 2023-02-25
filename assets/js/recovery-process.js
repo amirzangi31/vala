@@ -6,9 +6,7 @@ import {
 } from "./api/routin.js";
 import { getUserWithId } from "./api/user.js";
 import { getDataLocal } from "./helper.js";
-import { getUserLocal } from "./api/validateLoginUser.js`";
 
-await getUserLocal();
 
 /*---------------------render page-----------------------*/
 
@@ -70,16 +68,16 @@ const timer = (name, inputName, step) => {
   const input = document.querySelector(inputName);
   input.value = 0;
   const time = setInterval(() => {
-    console.log(count);
+    // console.log(count);
     if (count === images.length - 1) return;
     count++;
     images.forEach((item, index) => {
       item.classList.remove("active");
     });
     images[count].classList.add("active");
-    input.value += 1;
+    input.value = +input.value + 1 ;
     play = true;
-    console.log(play);
+    // console.log(play);
   }, 2500);
   window.stopHandler = () => {
     clearInterval(time);

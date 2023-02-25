@@ -2,7 +2,7 @@ import { getAllFood, getProgram } from "../api/managers.js";
 import { addProgram } from "../api/program.js";
 import { getDataLocal, getPath } from "../helper.js";
 import { validateLogin } from "../api/validateLoginAdmin.js";
-await validateLogin()
+await validateLogin();
 const userId = await getPath(window.location.search);
 
 const opraotrId = await getDataLocal("user-admin");
@@ -44,7 +44,7 @@ const renderPage = async () => {
             ${Object.keys(getFood)
               .map((key) => {
                 return `
-                <option value=${getFood[key].id}>${getFood[key].name}</option>
+                <option value=${getFood[key].name}>${getFood[key].name}</option>
                   `;
               })
               .join("")}
@@ -57,10 +57,6 @@ const renderPage = async () => {
     container.innerHTML += noteOne;
   });
 
-
-
-
-  
   //     const getFood = await getAllFood(opraotrId);
 
   //     const noteOne = `<tr>
@@ -105,25 +101,32 @@ const btnAddTableFood = document.querySelector("#sabt");
 
 
 
-
 btnAddTableFood.addEventListener("click", async () => {
-    const data = {
-      user: userId,
-      oprator: opraotrId,
-      types: "Food",
-    };
+  const selects = [...document.querySelectorAll("select")];
 
-    const ttt = await addProgram(data);
-    
 
-//   const selects = [...document.querySelectorAll("select")];
+  const convertToO = selects.map((item , index) => `{"name" : "${item.value}"}` )
 
-//   let i = 0;
 
-//   for (let i = 0; i < selects.length; i++) {
-//     console.log(selects[i]);
-//   }
+  const convertToS = convertToO.toString();
+  
+  const data = {
+    user : +userId,
+    oprator : +opraotrId,
+    types :"Food",
+    diet : convertToS
+  }
+
+  await addProgram(data)
+  
+  
+  
 });
 
 
-console.log(await getProgram(userId))
+// const rrr = arr.split(",")
+
+
+// rrr.forEach(item => {
+//     console.log(JSON.parse(item))
+// })

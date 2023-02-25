@@ -1,9 +1,7 @@
 
 import { baseUrl } from "./api/baseUrl.js"
 
-import { getUserLocal } from "./api/validateLoginUser.js`";
 
-await getUserLocal();
 
 
 const url = await baseUrl()

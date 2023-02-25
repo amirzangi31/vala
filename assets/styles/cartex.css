@@ -209,6 +209,24 @@ input {
   left: 10px;
 }
 
+.roz {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 12.5%;
+}
+
+.food-item-user {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
+}
+
 .highlit-category {
   padding: 10px;
   position: fixed;
@@ -2226,6 +2244,24 @@ input {
 }
 .btn-story.prev {
   left: 10px;
+}
+
+.roz {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 12.5%;
+}
+
+.food-item-user {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
 }
 
 .highlit-category {

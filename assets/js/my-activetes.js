@@ -1,7 +1,5 @@
 import { getAllRavand, getAllRoutin } from "./api/routin.js";
-import { getUserLocal } from "./api/validateLoginUser.js`";
 
-await getUserLocal();
 
 /*---------------------render Page---------------------*/
 const allRoutin = await getAllRoutin();

@@ -1,5 +1,14 @@
 const BASE_URL = "http://127.0.0.1:8000/";
 
+const getAllDiet = async() => {
+    const res = await fetch(`${BASE_URL}program/program/all/`)
+    const data = await res.json()
+
+
+    return data
+}
+
+
 const addProgram = async (data) => {
 
     const res = await fetch(`${BASE_URL}program/program/all/` , {
@@ -12,10 +21,9 @@ const addProgram = async (data) => {
 
     const dataF = await res.json()
 
-    console.log(dataF)
-
+    
     return dataF
 
 };
 
-export { addProgram };
+export { addProgram ,getAllDiet};
