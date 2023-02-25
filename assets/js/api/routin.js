@@ -33,7 +33,6 @@ const addRoutin = async (data) => {
 const addRavand = async (data) => {
   const res = await fetch(`${BASE_URL}ravand/all/`, data);
   const dataF = await res.json();
-    console.log(dataF)
   return dataF;
 };
 

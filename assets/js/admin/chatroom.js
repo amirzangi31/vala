@@ -1,18 +1,20 @@
-import { getUserWithId } from "./api/user.js";
-import { addChat, getAllChat } from "./api/chat.js";
-import { getDataLocal } from "./helper.js";
-import { toast } from "./toastify.js";
+import { getUserWithId } from "../api/user.js";
+import { addChat, getAllChat } from "../api/chat.js";
+import { toast } from "../toastify.js";
+import { getPath } from "../helper.js";
+import { getManager } from "../api/managers.js";
 
-const userId = await getDataLocal("user");
+const userId = await getPath(window.location.search);
+const oprator = await getManager(+window.localStorage.getItem("user-admin"));
+console.log(oprator);
 
-const user = await getUserWithId(+userId);
 const renderFooter = async () => {
   const footer = document.querySelector("#insert");
 
   const note = `
     <div class="col-2 col-lg-1 p-1">
            <div class="imge-admin">
-            <img src="http://127.0.0.1:8000${user.profileimage}" alt="">
+            <img src="http://127.0.0.1:8000${oprator.image}" alt="">
            </div>
          
          </div>
@@ -32,7 +34,6 @@ const renderFooter = async () => {
 await renderFooter();
 
 let scroll = false;
-
 const renderPage = async () => {
   const allChat = await getAllChat();
   const allChatUser = allChat.filter((item) => item.user.id === +userId);
@@ -41,6 +42,7 @@ const renderPage = async () => {
   allChatUser.forEach((item, index) => {
     const clock = item.created;
     const d = new Date(clock);
+
     const note = `
       <div class="messege-content ${
         item.status === "user" ? "send-user " : "answer "
@@ -48,7 +50,7 @@ const renderPage = async () => {
               <div class="col-12 col-md-6 p-2" >
                 <div class="item-message">
                   <div class="col-1 p-2">
-                    <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
+                    <span><img src="../assets/images/icon-valla/heart.png" alt=""></span>
                     <div class="text-white">${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}</div>
                     </div>
                     <div class=" col-9 col-lg-10 p-2">
@@ -57,15 +59,15 @@ const renderPage = async () => {
                       </div>
                     </div>
                     <div class="col-2 col-lg-1 p-2">
-
-                      <span class="user-profile">
-                      ${
-                        item.status === "user"
-                          ? `<img src='${item.user.profileimage}' alt=''>`
-                          : "<span class='d-flex justify-content-center align-items-center'  style='width : 50px; height : 50px ; border-radius : 50%; background : white;display:block;font-size : 24px'>A</span>"
-                      } 
+                    <span class="user-profile">
+                    ${
+                      item.status === "user"
+                        ? `<img src='${item.user.profileimage}' alt=''>`
+                        : "<span class='d-flex justify-content-center align-items-center'  style='width : 50px; height : 50px ; border-radius : 50%; background : white;display:block;font-size : 24px'>A</span>"
+                    } 
+                    
+                    </span>
                       
-                      </span>
                   </div>
                 </div>
               
@@ -78,68 +80,43 @@ const renderPage = async () => {
     container.innerHTML += note;
   });
 
-
-
-  if(!scroll){
+  if (!scroll) {
     window.scrollTo(0, document.body.scrollHeight);
-    scroll = true
-  };
-
+    scroll = true;
+  }
 };
 
 await renderPage();
-
-// const note = `<div class="messege-content send-user">
-// <div class="col-12 col-md-6 p-2" >
-//   <div class="item-message">
-//     <div class="col-1 p-2">
-//       <span><img src="./assets/images/icon-valla/heart.png" alt=""></span>
-//       <div>12:34</div>
-//       </div>
-//       <div class=" col-9 col-lg-10 p-2">
-//         <div class="content-message">
-//           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، د.
-//         </div>
-//       </div>
-//       <div class="col-2 col-lg-1 p-2">
-//         <span class="user-profile"><img src="./assets/images/senzual-girl-two.png" alt=""></span>
-
-//     </div>
-//   </div>
-
-// </div>
-// </div>`
 
 /*----------------send Message----------------*/
 
 const message = document.querySelector("#message");
 const send = async() =>{
-  if (!message.value.trim()) {
-      await toast("لطفا متنی را وارد کنید");
-      return;
-    }
-    const data = {
-      user: +userId,
-      description: message.value,
-      status: "user",
-    };
-  
-    await addChat(data);
-    await renderPage();
-    window.scrollTo(0, document.body.scrollHeight);
-    message.value = "";
-    message.focus();
+    if (!message.value.trim()) {
+        await toast("لطفا متنی را وارد کنید");
+        return;
+      }
+      const data = {
+        user: +userId,
+        description: message.value,
+        status: "admin",
+      };
+    
+      await addChat(data);
+      await renderPage();
+      window.scrollTo(0, document.body.scrollHeight);
+      message.value = "";
+      message.focus();
 }
 
 document.body.addEventListener("keyup" , async(e) =>{
-  if(e.code === "Enter") {
-      await send()
-  }
+    if(e.code === "Enter") {
+        await send()
+    }
 })
 window.sendMessage = async () => {
-  await send()
+    await send()
 };
-
 
 /*----------------send Message----------------*/
 

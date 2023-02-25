@@ -7,7 +7,6 @@ import {
 import { getUserWithId } from "./api/user.js";
 import { getDataLocal } from "./helper.js";
 
-
 /*---------------------render page-----------------------*/
 
 const userId = await getDataLocal("user");
@@ -21,7 +20,11 @@ const renderPage = async () => {
 
   const note = `
  <div class="item-images-r" id="content-image">
-    ${!ravandUser.length ? "<p class='display-6 text-white'>برای اضافه کردن عکس به روند بهبودی بروی + کلیک کنید</p>" : ""}
+    ${
+      !ravandUser.length
+        ? "<p class='display-6 text-white'>برای اضافه کردن عکس به روند بهبودی بروی + کلیک کنید</p>"
+        : ""
+    }
     ${Object.keys(ravandUser)
       .map((item) => {
         return `
@@ -35,7 +38,9 @@ const renderPage = async () => {
         <div class=" contenthh">
             <div class="name-user">${user.name}</div>
         <label id="title-type-range" for="amount-cream">روند بهبودی</label>
-        <input id="amount-cream" type="range" value="0" min="0" max="${ravandUser.length - 1}" name="cream" list="amount" step="1" oninput="changeHanlder(${1})">
+        <input id="amount-cream" type="range" value="0" min="0" max="${
+          ravandUser.length - 1
+        }" name="cream" list="amount" step="1" oninput="changeHanlder(${1})">
         <button class="btn-pl" onclick="playHandler(${1})">play</button>
         <button class="btn-pl" onclick="stopHandler()">stop</button>
         </div>
@@ -45,7 +50,7 @@ const renderPage = async () => {
 
   container.innerHTML = note;
   const images = [...document.querySelector(`#content-image`).children];
-  if(ravandUser.length){
+  if (ravandUser.length) {
     images[0].classList.add("active");
   }
 };
@@ -75,7 +80,7 @@ const timer = (name, inputName, step) => {
       item.classList.remove("active");
     });
     images[count].classList.add("active");
-    input.value = +input.value + 1 ;
+    input.value = +input.value + 1;
     play = true;
     // console.log(play);
   }, 2500);
@@ -89,7 +94,6 @@ window.playHandler = (step) => {
 };
 
 window.changeHanlder = (step) => {
-    
   const input = document.querySelector(`#amount-cream`);
 
   const images = [...document.querySelector(`#content-image`).children];
@@ -121,43 +125,48 @@ const isRoutin = allRoutin.find((item) => item.user === +userId);
 
 const btnSendRavand = document.querySelector("#btn-ravand");
 
-btnSendRavand.addEventListener("click", async () => {
+const notRotin = async () => {
+  const image = document.querySelector("#picture-ravand-add");
+  const data = {
+    name: "amir",
+    isActive: false,
+    value: "asdlknv;sa",
+    user: +userId,
+    types: "food",
+  };
+
+  const routin = await addRoutin(data);
+    var formData = new FormData();
+  formData.append("image", image.files[0], image.value);
+  formData.append("user", +userId);
+  formData.append("routin", routin.id);
+  var requestOptions = {
+    method: "POST",
+    body: formData,
+    redirect: "follow",
+  };
+  await addRavand(requestOptions);
+};
+
+const routinA = async () => {
   const image = document.querySelector("#picture-ravand-add");
 
- 
-  if (!Boolean(isRoutin)) {
-    
-    const data = {
-      name: "amir",
-      isActive: false,
-      value: "asdlknv;sa",
-      user: +userId,
-      types: "food",
-    };
-
-    await addRoutin(data);
-
-    var formData = new FormData();
-    formData.append("image", image.files[0], image.value);
-    formData.append("user", +userId);
-    formData.append("routin", isRoutin.id);
-    var requestOptions = {
-      method: "POST",
-      body: formData,
-      redirect: "follow",
-    };
-    await addRavand(requestOptions);
-  }
-
-
   var formData = new FormData();
-    formData.append("image", image.files[0], image.value);
-    formData.append("user", +userId);
-    formData.append("routin", isRoutin.id);
-    var requestOptions = {
-      method: "POST",
-      body: formData,
-      redirect: "follow",
-    };
+  formData.append("image", image.files[0], image.value);
+  formData.append("user", +userId);
+  formData.append("routin", isRoutin.id);
+  var requestOptions = {
+    method: "POST",
+    body: formData,
+    redirect: "follow",
+  };
   await addRavand(requestOptions);
+};
+btnSendRavand.addEventListener("click", async () => {
+
+  if (!Boolean(isRoutin)) {
+    await notRotin();
+  } else {
+    await routinA();
+  }
 });

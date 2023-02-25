@@ -5,7 +5,8 @@ import { getAllUsers, getUserWithId } from "../api/user.js";
 import { getDataLocal, shortTicket } from "../helper.js";
 
 import { validateLogin } from "../api/validateLoginAdmin.js";
-await validateLogin()
+import { getAllChat } from "../api/chat.js";
+await validateLogin();
 const opratorId = await getDataLocal("user-admin");
 
 /*------------------------render page---------------------------*/
@@ -14,7 +15,6 @@ const renderPage = async () => {
   const tickets = await getAllTickets();
   const replyTickets = await getAllReplyTicket();
 
-  const allUsers = await getAllUsers();
 
   const allFood = await getAllFood();
   const foods = allFood.filter((item) => item.oprator === opratorId);
@@ -130,12 +130,12 @@ const renderPage = async () => {
   });
 
   const allRoutin = await getAllRoutin();
+  const allUser = await getAllUsers()
   const ravandUser = await getAllRavand();
   const containerUsers = document.querySelector("#container-users");
 
-  allRoutin.forEach((item, index) => {
-    const ravand = ravandUser.filter((elem) => elem.routin === item.id);
-
+  allUser.forEach((item, index) => {
+    const ravand = ravandUser.filter((elem) => elem.user === item.id);
     const note = `<div class="col-12 col-md-6 p-2 kk">
         <div class="item-user">
           <!-- imge-user -->
@@ -184,7 +184,9 @@ const renderPage = async () => {
 
   const images = document.querySelectorAll(".images-item");
   images.forEach((item) => {
-    item.children[0].classList.add("active");
+    if (!!item.children.length) {
+      item.children[0].classList.add("active");
+    }
   });
 
   //for test
@@ -304,6 +306,21 @@ const renderPage = async () => {
     moreMoshavereh.innerHTML += more;
     modalMoshavereh.innerHTML += modal;
   });
+
+  const containerChat = document.querySelector("#container-chat");
+  allUser.forEach((item) => {
+    const note = `
+      <div class="text-white">
+        <sapn>${item.name}</sapn>
+        <a class="bg-warning" href="../admin/chatroom.html?${item.id}">گفتگو</a>
+      </div>
+    `
+    containerChat.innerHTML += note
+  });
+  
+
+
+
 
   /* ------------------change img and content--------------------- */
   let btns = document.querySelectorAll(".btn-category-user");
@@ -466,10 +483,7 @@ window.answerTicket = async (id, index) => {
 
 /*------------------------answer Ticket---------------------------*/
 
-
-
 /*------------------------play and stop slider------------------------*/
-let play = false;
 const timer = (name, inputName, step) => {
   const images = [...document.querySelector(name).children];
 
@@ -483,17 +497,15 @@ const timer = (name, inputName, step) => {
   const input = document.querySelector(inputName);
   input.value = 0;
   const time = setInterval(() => {
-    console.log(count);
+    // console.log(count);
     if (count === images.length - 1) return;
     count++;
     images.forEach((item, index) => {
       item.classList.remove("active");
     });
     images[count].classList.add("active");
-    input.value += 1;
-    play = true;
-    console.log(play);
-  }, 1000);
+    input.value = +input.value + 1;
+  }, 2500);
   window.stopHandler = () => {
     clearInterval(time);
   };
